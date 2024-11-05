@@ -2,11 +2,15 @@
 -- SPDX-FileCopyrightText: 2024 Elouan Martinet <exa@elou.world>
 -- SPDX-License-Identifier: BSD-3-Clause
 
-require("catppuccin").setup({
+require("catppuccin").setup{
 	flavour = "macchiato",
 	dim_inactive = {
 		enabled = true,
 	},
-})
+	styles = {
+		comments = {},
+		conditionals = {},
+	},
+}
 
-vim.cmd.colorscheme "catppuccin-macchiato"
+vim.cmd.colorscheme("catppuccin-macchiato")
