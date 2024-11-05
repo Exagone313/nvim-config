@@ -2,11 +2,11 @@
 -- SPDX-FileCopyrightText: 2024 Elouan Martinet <exa@elou.world>
 -- SPDX-License-Identifier: BSD-3-Clause
 
-local config_names = {
-	"colors",
-	"lsp",
-}
+require("catppuccin").setup({
+	flavour = "macchiato",
+	dim_inactive = {
+		enabled = true,
+	},
+})
 
-for _, name in ipairs(config_names) do
-	require("config." .. name)
-end
+vim.cmd.colorscheme "catppuccin-macchiato"

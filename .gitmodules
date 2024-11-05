@@ -1,0 +1,6 @@
+[submodule "lua/nvim-lspconfig"]
+	path = pack/submodule/start/nvim-lspconfig
+	url = https://github.com/neovim/nvim-lspconfig.git
+[submodule "pack/submodule/start/nvim"]
+	path = pack/submodule/start/catppuccin
+	url = https://github.com/catppuccin/nvim.git
