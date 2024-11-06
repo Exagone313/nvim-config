@@ -13,6 +13,7 @@ require("catppuccin").setup{
 	},
 	integrations = {
 		blink_cmp = true,
+		diffview = true,
 	},
 }
 

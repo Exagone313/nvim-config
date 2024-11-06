@@ -25,3 +25,15 @@
 [submodule "pack/submodule/start/barbecue"]
 	path = pack/submodule/start/barbecue
 	url = https://github.com/utilyre/barbecue.nvim.git
+[submodule "pack/submodule/start/diffview"]
+	path = pack/submodule/start/diffview
+	url = https://github.com/sindrets/diffview.nvim.git
+[submodule "pack/submodule/start/fzf-lua"]
+	path = pack/submodule/start/fzf-lua
+	url = https://github.com/ibhagwan/fzf-lua.git
+[submodule "pack/submodule/start/gitsigns.nvim"]
+	path = pack/submodule/start/gitsigns
+	url = https://github.com/lewis6991/gitsigns.nvim
+[submodule "pack/submodule/start/indent-blankline"]
+	path = pack/submodule/start/ibl
+	url = https://github.com/lukas-reineke/indent-blankline.nvim.git
