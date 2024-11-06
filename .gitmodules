@@ -37,12 +37,3 @@
 [submodule "pack/submodule/start/indent-blankline"]
 	path = pack/submodule/start/ibl
 	url = https://github.com/lukas-reineke/indent-blankline.nvim.git
-[submodule "pack/submodule/start/plenary"]
-	path = pack/submodule/start/plenary
-	url = https://github.com/nvim-lua/plenary.nvim.git
-[submodule "pack/submodule/start/telescope"]
-	path = pack/submodule/start/telescope
-	url = https://github.com/nvim-telescope/telescope.nvim.git
-[submodule "pack/submodule/start/yaml-companion"]
-	path = pack/submodule/start/yaml-companion
-	url = https://github.com/someone-stole-my-name/yaml-companion.nvim.git

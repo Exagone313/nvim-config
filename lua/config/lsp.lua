@@ -47,9 +47,6 @@ function lsp_binary_exists(server_config)
 	return vim.fn.executable(server_config.document_config.default_config.cmd[1]) == 1
 end
 
-require("telescope").load_extension("yaml_schema")
-local yaml_companion = require("yaml-companion").setup{}
-
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
 local servers = {
@@ -62,20 +59,26 @@ local servers = {
 	['rubocop'] = {},
 	['ruff'] = {}, -- TODO fallback to pyright, pylsp in this order
 	['terraformls'] = {},
-	['yamlls'] = yaml_companion
---	['yamlls'] = {
---		settings = {
---			['yaml.schemas'] = {
---				['https://gitlab.com/gitlab-org/gitlab/-/raw/master/app/assets/javascripts/editor/schema/ci.json'] = {'/*.gitlab-ci.yml','/*.gitlab-ci.yaml'},
---			},
---		},
---	},
+	['yamlls'] = {
+		settings = {
+			yaml = {
+				schemaStore = {
+					url = "https://www.schemastore.org/api/json/catalog.json",
+					enable = true,
+				},
+				customTags = {
+					"!reference sequence",
+				},
+			},
+		},
+	},
 }
-for lsp, options in pairs(servers) do
-	if lspconfig[lsp] and lspconfig[lsp].setup and lsp_binary_exists(lspconfig[lsp]) then
+for server, options in pairs(servers) do
+	if lspconfig[server] and lspconfig[server].setup and lsp_binary_exists(lspconfig[server]) then
 		options.on_attach = on_attach
 		options.capabilities = require('blink-cmp').get_lsp_capabilities(options.capabilities)
-		lspconfig[lsp].setup(options)
+		--print(vim.inspect(options))
+		lspconfig[server].setup(options)
 	end
 end
 

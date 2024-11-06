@@ -8,9 +8,26 @@ require("diffview").setup{
 require("fzf-lua").setup()
 require("gitsigns").setup()
 
+local ibl_highlight = {
+    "CursorLine",
+    "ColorColumn",
+}
+local ibl_hooks = require "ibl.hooks"
+ibl_hooks.register(ibl_hooks.type.SKIP_LINE, function(_, _, _, line)
+    return #line == 0
+end)
 require("ibl").setup{
+	viewport_buffer = {
+		min = 150,
+	},
 	indent = {
-		char = "┊",
+		highlight = ibl_highlight,
+		char = "",
+		tab_char = "⇥",
+	},
+	whitespace = {
+		highlight = ibl_highlight,
+		--remove_blankline_trail = false,
 	},
 	scope = {
 		enabled = false,
