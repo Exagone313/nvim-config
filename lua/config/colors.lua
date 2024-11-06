@@ -11,6 +11,9 @@ require("catppuccin").setup{
 		comments = {},
 		conditionals = {},
 	},
+	integrations = {
+		blink_cmp = true,
+	},
 }
 
 vim.cmd.colorscheme("catppuccin-macchiato")

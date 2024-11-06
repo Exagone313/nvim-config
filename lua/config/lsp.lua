@@ -63,8 +63,28 @@ local servers = {
 }
 for _, lsp in pairs(servers) do
 	if lspconfig[lsp] and lspconfig[lsp].setup and lsp_binary_exists(lspconfig[lsp]) then
-		lspconfig[lsp].setup {
+		lspconfig[lsp].setup{
 			on_attach = on_attach,
+			capabilities = require('blink-cmp').get_lsp_capabilities(),
 		}
 	end
 end
+
+require("blink-cmp").setup{
+	keymap = {
+		['<C-space>'] = { 'show', 'show_documentation', 'hide_documentation' },
+		['<Esc>'] = { 'hide', 'fallback' },
+		['<C-p>'] = { 'select_and_accept', 'fallback' },
+		['<Up>'] = { 'select_prev', 'fallback' },
+		['<Down>'] = { 'select_next', 'fallback' },
+		['<C-b>'] = { 'scroll_documentation_up', 'fallback' },
+		['<C-f>'] = { 'scroll_documentation_down', 'fallback' },
+		['<Tab>'] = { 'snippet_forward', 'fallback' },
+		['<S-Tab>'] = { 'snippet_backward', 'fallback' },
+	},
+	trigger = {
+		signature_help = {
+			enabled = true,
+		},
+	},
+}

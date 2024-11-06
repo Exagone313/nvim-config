@@ -7,6 +7,7 @@ local config_names = {
 	"colors",
 	"treesitter",
 	"lsp",
+	"top",
 }
 
 for _, name in ipairs(config_names) do
