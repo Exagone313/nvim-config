@@ -9,6 +9,7 @@ local config_names = {
 	"lsp",
 	"top",
 	"buffer",
+	"bottom",
 }
 
 for _, name in ipairs(config_names) do

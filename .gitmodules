@@ -34,3 +34,6 @@
 [submodule "pack/submodule/start/dropbar"]
 	path = pack/submodule/start/dropbar
 	url = https://github.com/Bekaboo/dropbar.nvim.git
+[submodule "pack/submodule/start/lualine"]
+	path = pack/submodule/start/lualine
+	url = https://github.com/nvim-lualine/lualine.nvim.git
