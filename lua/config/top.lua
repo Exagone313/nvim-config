@@ -2,20 +2,33 @@
 -- SPDX-FileCopyrightText: 2024 Elouan Martinet <exa@elou.world>
 -- SPDX-License-Identifier: BSD-3-Clause
 
-require("barbecue").setup()
 require("bufferline").setup{
 	highlights = require("catppuccin.groups.integrations.bufferline").get{
-		styles = {}
+		styles = {},
 	},
 	options = {
-		mode = "tabs",
-		numbers = "none",
-		always_show_bufferline = false,
+		numbers = function(opts)
+			return string.format("%s", opts.lower(opts.id))
+		end,
 		show_duplicate_prefix = false,
+		show_tab_indicators = false,
+		indicator = {
+			style = "none",
+		},
+		right_mouse_command = "",
+		middle_mouse_command = "bdelete! %d",
 		diagnostics = "nvim_lsp",
 		diagnostics_indicator = function(_, level)
 			local icon = level:match("error") and " " or " "
 			return " " .. icon
-		end
+		end,
 	},
 }
+require("dropbar").setup()
+
+vim.keymap.set("n", "<Tab>", function()
+	require("bufferline").cycle(1)
+end)
+vim.keymap.set("n", "<S-Tab>", function()
+	require("bufferline").cycle(-1)
+end)

@@ -1,7 +1,7 @@
-[submodule "lua/nvim-lspconfig"]
+[submodule "pack/submodule/start/nvim-lspconfig"]
 	path = pack/submodule/start/nvim-lspconfig
 	url = https://github.com/neovim/nvim-lspconfig.git
-[submodule "pack/submodule/start/nvim"]
+[submodule "pack/submodule/start/catppuccin"]
 	path = pack/submodule/start/catppuccin
 	url = https://github.com/catppuccin/nvim.git
 [submodule "pack/submodule/start/nvim-treesitter"]
@@ -10,30 +10,27 @@
 [submodule "pack/submodule/start/nvim-navic"]
 	path = pack/submodule/start/nvim-navic
 	url = https://github.com/SmiteshP/nvim-navic.git
-[submodule "pack/submodule/start/barbecue.nvim"]
-	path = pack/submodule/start/barbecue.nvim
-	url = https://github.com/utilyre/barbecue.nvim.git
 [submodule "pack/submodule/start/friendly-snippets"]
 	path = pack/submodule/start/friendly-snippets
 	url = https://github.com/rafamadriz/friendly-snippets.git
-[submodule "pack/submodule/start/blink.cmp"]
+[submodule "pack/submodule/start/blink-cmp"]
 	path = pack/submodule/start/blink-cmp
 	url = https://github.com/Saghen/blink.cmp.git
 [submodule "pack/submodule/start/bufferline"]
 	path = pack/submodule/start/bufferline
 	url = https://github.com/akinsho/bufferline.nvim.git
-[submodule "pack/submodule/start/barbecue"]
-	path = pack/submodule/start/barbecue
-	url = https://github.com/utilyre/barbecue.nvim.git
 [submodule "pack/submodule/start/diffview"]
 	path = pack/submodule/start/diffview
 	url = https://github.com/sindrets/diffview.nvim.git
 [submodule "pack/submodule/start/fzf-lua"]
 	path = pack/submodule/start/fzf-lua
 	url = https://github.com/ibhagwan/fzf-lua.git
-[submodule "pack/submodule/start/gitsigns.nvim"]
+[submodule "pack/submodule/start/gitsigns"]
 	path = pack/submodule/start/gitsigns
 	url = https://github.com/lewis6991/gitsigns.nvim
-[submodule "pack/submodule/start/indent-blankline"]
+[submodule "pack/submodule/start/ibl"]
 	path = pack/submodule/start/ibl
 	url = https://github.com/lukas-reineke/indent-blankline.nvim.git
+[submodule "pack/submodule/start/dropbar"]
+	path = pack/submodule/start/dropbar
+	url = https://github.com/Bekaboo/dropbar.nvim.git
