@@ -8,10 +8,14 @@ require("bufferline").setup{
 		styles = {}
 	},
 	options = {
+		mode = "tabs",
+		numbers = "none",
+		always_show_bufferline = false,
+		show_duplicate_prefix = false,
 		diagnostics = "nvim_lsp",
-		diagnostics_indicator = function(count, level)
+		diagnostics_indicator = function(_, level)
 			local icon = level:match("error") and " " or " "
-			return " " .. icon .. count
+			return " " .. icon
 		end
 	},
 }
