@@ -7,6 +7,7 @@ require("bufferline").setup{
 		styles = {},
 	},
 	options = {
+		mode = "tabs",
 		numbers = function(opts)
 			return string.format("%s", opts.lower(opts.id))
 		end,
@@ -26,6 +27,7 @@ require("bufferline").setup{
 }
 require("dropbar").setup()
 
+vim.keymap.set("n", "<Leader>t", '<cmd>tab split<CR>')
 vim.keymap.set("n", "<Tab>", function()
 	require("bufferline").cycle(1)
 end)

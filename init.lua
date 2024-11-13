@@ -10,7 +10,6 @@ local config_names = {
 	"above",
 	"top",
 	"bottom",
-	"side",
 	"buffer",
 }
 
