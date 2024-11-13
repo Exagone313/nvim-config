@@ -10,6 +10,7 @@ local config_names = {
 	"top",
 	"buffer",
 	"bottom",
+	"side",
 }
 
 for _, name in ipairs(config_names) do

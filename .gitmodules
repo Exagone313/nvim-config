@@ -37,3 +37,12 @@
 [submodule "pack/submodule/start/lualine"]
 	path = pack/submodule/start/lualine
 	url = https://github.com/nvim-lualine/lualine.nvim.git
+[submodule "pack/submodule/start/nui"]
+	path = pack/submodule/start/nui
+	url = https://github.com/MunifTanjim/nui.nvim.git
+[submodule "pack/submodule/start/neo-tree"]
+	path = pack/submodule/start/neo-tree
+	url = https://github.com/nvim-neo-tree/neo-tree.nvim.git
+[submodule "pack/submodule/start/plenary"]
+	path = pack/submodule/start/plenary
+	url = https://github.com/nvim-lua/plenary.nvim.git
