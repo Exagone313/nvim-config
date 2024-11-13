@@ -21,7 +21,18 @@ require("catppuccin").setup{
 	integrations = {
 		blink_cmp = true,
 		diffview = true,
+		dropbar = {
+			enabled = true,
+		},
+		fzf = true,
+		gitsigns = true,
+		indent_blankline = {
+			enabled = true,
+		},
 		neotree = true,
+		noice = true,
+		treesitter = true,
+		which_key = true,
 	},
 }
 

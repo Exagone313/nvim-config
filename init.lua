@@ -7,10 +7,11 @@ local config_names = {
 	"colors",
 	"treesitter",
 	"lsp",
+	"above",
 	"top",
-	"buffer",
 	"bottom",
 	"side",
+	"buffer",
 }
 
 for _, name in ipairs(config_names) do

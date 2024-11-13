@@ -43,3 +43,12 @@
 [submodule "pack/submodule/start/plenary"]
 	path = pack/submodule/start/plenary
 	url = https://github.com/nvim-lua/plenary.nvim.git
+[submodule "pack/submodule/start/noice"]
+	path = pack/submodule/start/noice
+	url = https://github.com/folke/noice.nvim.git
+[submodule "pack/submodule/start/notify"]
+	path = pack/submodule/start/notify
+	url = https://github.com/rcarriga/nvim-notify.git
+[submodule "pack/submodule/start/which-key"]
+	path = pack/submodule/start/which-key
+	url = https://github.com/folke/which-key.nvim.git

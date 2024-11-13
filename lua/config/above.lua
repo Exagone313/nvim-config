@@ -1,0 +1,6 @@
+-- Copyright (C) 2024 Elouan Martinet <exa@elou.world>
+-- SPDX-FileCopyrightText: 2024 Elouan Martinet <exa@elou.world>
+-- SPDX-License-Identifier: BSD-3-Clause
+
+require("noice").setup()
+require("which-key").setup()

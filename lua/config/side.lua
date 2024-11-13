@@ -24,15 +24,21 @@ require("neo-tree").setup{
 	},
 }
 
-vim.keymap.set("n", "<Leader>e", function()
-	local buffer_id = vim.api.nvim_get_current_buf()
-	if vim.fn.expand("%:p") == "" and not vim.api.nvim_buf_get_option(buffer_id, 'modified') then
-		require("neo-tree.command").execute({action = "focus", position = "current"})
-		vim.api.nvim_buf_delete(buffer_id, {})
-	else
-		require("neo-tree.command").execute({action = "focus"})
-	end
-end)
+--vim.keymap.set("n", "<Leader>e", )
+
+require("which-key").add({
+	"<Leader>e",
+	function()
+		local buffer_id = vim.api.nvim_get_current_buf()
+		if vim.fn.expand("%:p") == "" and not vim.api.nvim_buf_get_option(buffer_id, 'modified') then
+			require("neo-tree.command").execute({action = "focus", position = "current"})
+			vim.api.nvim_buf_delete(buffer_id, {})
+		else
+			require("neo-tree.command").execute({action = "focus"})
+		end
+	end,
+	desc = "Neotree",
+})
 
 --if vim.fn.argc(-1) == 0 then
 --	vim.cmd("")
