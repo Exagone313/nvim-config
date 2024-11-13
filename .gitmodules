@@ -7,9 +7,6 @@
 [submodule "pack/submodule/start/nvim-treesitter"]
 	path = pack/submodule/start/nvim-treesitter
 	url = https://github.com/nvim-treesitter/nvim-treesitter.git
-[submodule "pack/submodule/start/nvim-navic"]
-	path = pack/submodule/start/nvim-navic
-	url = https://github.com/SmiteshP/nvim-navic.git
 [submodule "pack/submodule/start/friendly-snippets"]
 	path = pack/submodule/start/friendly-snippets
 	url = https://github.com/rafamadriz/friendly-snippets.git
