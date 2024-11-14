@@ -12,7 +12,7 @@ require("lualine").setup {
 		lualine_a = {
 			function()
 				local mode = require('lualine.utils.mode').get_mode()
-				return (mode .. "     "):sub(1, 6):upper()
+				return ("      " .. mode):sub(-7)
 			end
 		},
 		lualine_b = {'branch', 'diff', 'diagnostics'},
