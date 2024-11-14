@@ -33,7 +33,7 @@ require("which-key").add({
 			require("neo-tree.command").execute({action = "focus", position = "current"})
 			vim.api.nvim_buf_delete(buffer_id, {})
 		else
-			require("neo-tree.command").execute({action = "focus"})
+			require("neo-tree.command").execute({action = "focus", dir = vim.fn.expand("%:p:h"), reveal = true})
 		end
 	end,
 	desc = "Neotree",

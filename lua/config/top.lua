@@ -25,7 +25,11 @@ require("bufferline").setup{
 		end,
 	},
 }
-require("dropbar").setup()
+require("dropbar").setup{
+	menu = {
+		preview = false,
+	},
+}
 
 vim.keymap.set("n", "<Leader>t", '<cmd>tab split<CR>')
 vim.keymap.set("n", "<Tab>", function()

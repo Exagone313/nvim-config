@@ -10,3 +10,5 @@ vim.opt.listchars = "tab:  ,trail: ,nbsp: ,lead:·"
 vim.opt.scrolloff = 2
 
 vim.g.mapleader = ","
+
+vim.go.pumheight = 15
