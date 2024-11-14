@@ -11,11 +11,8 @@ require("lualine").setup {
 	sections = {
 		lualine_a = {
 			function()
-				local mode = vim.api.nvim_get_mode().mode
-				if mode ~= nil then
-					return mode:sub(1, 1):upper()
-				end
-				return "?"
+				local mode = require('lualine.utils.mode').get_mode()
+				return (mode .. "     "):sub(1, 6):upper()
 			end
 		},
 		lualine_b = {'branch', 'diff', 'diagnostics'},
