@@ -38,3 +38,4 @@ require("which-key").add({
 	end,
 	desc = "Neotree",
 })
+require("fzf-lua").setup()

@@ -5,13 +5,12 @@
 require("diffview").setup{
 	use_icons = false,
 }
-require("fzf-lua").setup()
 require("gitsigns").setup()
 
-local ibl_highlight = {
-    "CursorLine",
-    "ColorColumn",
-}
+--local ibl_highlight = {
+--    "CursorLine",
+--    "ColorColumn",
+--}
 local ibl_hooks = require "ibl.hooks"
 ibl_hooks.register(ibl_hooks.type.SKIP_LINE, function(_, _, _, line)
     return #line == 0
@@ -21,18 +20,21 @@ require("ibl").setup{
 		min = 150,
 	},
 	indent = {
-		highlight = ibl_highlight,
+		--highlight = ibl_highlight,
 		char = "",
 		tab_char = "⇥",
 	},
 	whitespace = {
-		highlight = ibl_highlight,
-		--remove_blankline_trail = false,
+		--highlight = ibl_highlight,
 	},
 	scope = {
 		enabled = false,
 	},
 }
+
+require("mini.trailspace").setup()
+
+require("guess-indent").setup()
 
 vim.keymap.set({"n", "v"}, "<Leader>p", '"+p')
 vim.keymap.set({"n", "v"}, "<Leader>P", '"+P')

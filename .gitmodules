@@ -52,3 +52,9 @@
 [submodule "pack/submodule/start/which-key"]
 	path = pack/submodule/start/which-key
 	url = https://github.com/folke/which-key.nvim.git
+[submodule "pack/submodule/start/mini"]
+	path = pack/submodule/start/mini
+	url = https://github.com/echasnovski/mini.nvim.git
+[submodule "pack/submodule/start/guess-indent"]
+	path = pack/submodule/start/guess-indent
+	url = https://github.com/NMAC427/guess-indent.nvim.git
