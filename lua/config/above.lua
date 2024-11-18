@@ -8,11 +8,23 @@ require("notify").setup{
 	top_down = false,
 }
 require("noice").setup()
-require("which-key").setup()
+require("which-key").setup{
+	preset = "helix",
+}
+require("which-key").add({
+	"<Leader>?",
+	function()
+		require("which-key").show({global = false})
+	end,
+	desc = "Which Key",
+})
 require("neo-tree").setup{
 	close_if_last_window = true,
 	filesystem = {
 		hijack_netrw_behavior = "open_current",
+		filtered_items = {
+			hide_dotfiles = false,
+		},
 	},
 	window = {
 		position = "float",

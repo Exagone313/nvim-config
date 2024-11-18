@@ -85,11 +85,10 @@ end
 require("blink-cmp").setup{
 	keymap = {
 		['<C-space>'] = { 'show', 'show_documentation', 'hide_documentation' },
-		--['<Esc>'] = { 'hide', 'fallback' },
 		['<C-c>'] = { 'hide', 'fallback' },
-		['<C-p>'] = { 'select_and_accept', 'fallback' },
-		['<Up>'] = { 'select_prev', 'fallback' },
-		['<Down>'] = { 'select_next', 'fallback' },
+		['<C-Enter>'] = { 'select_and_accept', 'fallback' },
+		['<C-Up>'] = { 'select_prev', 'fallback' },
+		['<C-Down>'] = { 'select_next', 'fallback' },
 		['<C-b>'] = { 'scroll_documentation_up', 'fallback' },
 		['<C-f>'] = { 'scroll_documentation_down', 'fallback' },
 		['<Tab>'] = { 'snippet_forward', 'fallback' },
