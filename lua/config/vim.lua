@@ -6,7 +6,7 @@ vim.opt.number = true
 vim.opt.cursorline = true
 vim.opt.showmode = false
 vim.opt.list = true
-vim.opt.listchars = "tab:  ,trail: ,nbsp: ,lead:·"
+vim.opt.listchars = {tab = "  ", trail = " ", nbsp = " ", lead = "·"}
 vim.opt.scrolloff = 2
 
 vim.g.mapleader = ","

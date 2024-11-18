@@ -2,6 +2,11 @@
 -- SPDX-FileCopyrightText: 2024 Elouan Martinet <exa@elou.world>
 -- SPDX-License-Identifier: BSD-3-Clause
 
+require("notify").setup{
+	minimum_width = 40,
+	render = "wrapped-compact",
+	top_down = false,
+}
 require("noice").setup()
 require("which-key").setup()
 require("neo-tree").setup{
