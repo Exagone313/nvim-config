@@ -20,18 +20,22 @@ require("which-key").add({
 })
 require("neo-tree").setup{
 	close_if_last_window = true,
-	filesystem = {
-		hijack_netrw_behavior = "open_current",
-		filtered_items = {
-			hide_dotfiles = false,
-		},
-	},
 	window = {
 		position = "float",
 		mappings = {
 			["<LeftRelease>"] = "open_tabnew",
 			["<2-LeftMouse>"] = "open_tabnew",
 		},
+	},
+	filesystem = {
+		hijack_netrw_behavior = "open_current",
+		filtered_items = {
+			hide_dotfiles = false,
+		},
+		bind_to_cwd = false,
+	},
+	buffers = {
+		bind_to_cwd = false,
 	},
 	event_handlers = {
 		{
