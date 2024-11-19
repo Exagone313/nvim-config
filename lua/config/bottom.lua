@@ -3,11 +3,11 @@
 -- SPDX-License-Identifier: BSD-3-Clause
 
 require("lualine").setup {
-    options = {
-        theme = "catppuccin",
+	options = {
+		theme = "catppuccin",
 		section_separators = "",
 		component_separators = "",
-    },
+	},
 	sections = {
 		lualine_a = {
 			function()
