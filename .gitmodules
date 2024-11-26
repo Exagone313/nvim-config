@@ -57,4 +57,4 @@
 	url = https://github.com/echasnovski/mini.nvim.git
 [submodule "pack/submodule/start/guess-indent"]
 	path = pack/submodule/start/guess-indent
-	url = https://github.com/NMAC427/guess-indent.nvim.git
+	url = https://github.com/Exagone313/guess-indent.nvim.git
