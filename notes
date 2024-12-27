@@ -1,0 +1,64 @@
+# issues/ideas
+
+major
+* autocompletion does no contain values that would be completed by ctrl+P at all
+=> seem to work in markdown...
+* show directory of the file somewhere, or two files with the same name are not distinguishable
+* impossible to move tabs
+* trigger editorconfig check on changing FileType (should do it already according to the docs?)
+=> seems an issue with expandtab in either guess-indent or editorconfig
+* when saving it strips trailing spaces
+* autocompletion is again bound to up/down keys
+
+lesser
+* add maps for fzf-lua
+* test diffview
+* new tabs/buffers in bufferline do not open next to the current one, it's sorted by buffer id (?)
+=> still happening? see sort_by
+* dropbar may not be shown when opening a file from netrw (and other cases from dropbar itself too)
+=> bar.enable or bar.attach_events or bar.update_debounce
+* opening a directory (netrw) from dropbar doesn't create a new tab, it replaces current tab
+* when selecting a file that is already open in dropbar, it opens a new tab instead of switching to the existing one
+* similar issue with neotree
+=> open in current buffer?
+* when clicking a directory in dropbar, always expand it, do not open it in netrw (neotree is used for navigating directories)
+=> probably see opts.menu.keymaps LeftMouse (or read click_at code)
+* bufferline misses suggestions/completion
+* need a way to open all LSP errors in a window
+=> would be nice if clicking on the error icons in lualine would open that window
+* create a custom window (nui?) with entries for opening various tools or making actions
+=> when a tool is open, the entry to open it should be replaced by an entry to close it
+* https://github.com/ptdewey/yankbank-nvim or https://github.com/gbprod/yanky.nvim
+=> yanky needs https://github.com/stevearc/dressing.nvim afaik
+* better neotree controls:
+=> replace left and right arrow keys on neotree by parent directory and open file/expand directory
+=> show H, the key to show hidden files, at the end of hidden item line
+=> if possible, disable visual and hide cursor (keep only the line)
+* select a help page in FzfLua and then open it in a new tab (full window)
+* need a strategy for looking for files (by name and/or content) while navigating directories in neotree
+* search for selected text (escape it)
+
+# fixed
+
+* see if it's possible for dropbar to open new buffers in tabs, so bufferline can be reconfigured to tabs only (?)
+* bufferline does not show duplicated tabs created from :tab split
+=> actually shown in tab indicators on the right of the screen if enabled
+* sometimes :q closes neovim completely when in netrw
+=> weird behavior anyway, since it shows buffers and not tabs in bufferline
+=> solved by using tabs instead of buffers
+* modify lualine_a to show the first few letters of the mode in the first group
+* lualine is colored depending to the mode, but I'd rather keep a unique color WONTDO
+* scrolling in dropbar opens files
+* can't go to parent directory (..) in neotree
+=> backspace
+* neotree does not open directory of current buffer
+* trailing spaces are not visible
+=> but not visible on insert mode
+* visual mode on indent can't be seen in ibl
+=> removed backgrounds
+* needs to press esc twice to close the autocomplete menu and then go back to normal mode
+=> also arrows are used for this menu, so may not be always the best
+=> could disable autocomplete menu by default and enable it in a menu (see nui window idea) => NOPE
+==> changed keybinds
+* can't close message popups
+=> changed display
