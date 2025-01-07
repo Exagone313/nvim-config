@@ -83,6 +83,9 @@ for server, options in pairs(servers) do
 end
 
 require("blink-cmp").setup{
+	sources = {
+		cmdline = {},
+	},
 	keymap = {
 		['<C-space>'] = { 'show', 'show_documentation', 'hide_documentation' },
 		['<C-c>'] = { 'hide', 'fallback' },
