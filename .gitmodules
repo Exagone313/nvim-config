@@ -13,9 +13,6 @@
 [submodule "pack/submodule/start/blink-cmp"]
 	path = pack/submodule/start/blink-cmp
 	url = https://github.com/Saghen/blink.cmp.git
-[submodule "pack/submodule/start/bufferline"]
-	path = pack/submodule/start/bufferline
-	url = https://github.com/akinsho/bufferline.nvim.git
 [submodule "pack/submodule/start/diffview"]
 	path = pack/submodule/start/diffview
 	url = https://github.com/sindrets/diffview.nvim.git
