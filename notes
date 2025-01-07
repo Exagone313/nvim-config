@@ -3,18 +3,13 @@
 major
 * autocompletion does no contain values that would be completed by ctrl+P at all
 => seem to work in markdown...
-* show directory of the file somewhere, or two files with the same name are not distinguishable
-* impossible to move tabs
+* ctrl+p is bound by blink-cmp when it is open
 * trigger editorconfig check on changing FileType (should do it already according to the docs?)
 => seems an issue with expandtab in either guess-indent or editorconfig
-* when saving it strips trailing spaces
-* autocompletion is again bound to up/down keys
 
 lesser
 * add maps for fzf-lua
 * test diffview
-* new tabs/buffers in bufferline do not open next to the current one, it's sorted by buffer id (?)
-=> still happening? see sort_by
 * dropbar may not be shown when opening a file from netrw (and other cases from dropbar itself too)
 => bar.enable or bar.attach_events or bar.update_debounce
 * opening a directory (netrw) from dropbar doesn't create a new tab, it replaces current tab
@@ -23,7 +18,6 @@ lesser
 => open in current buffer?
 * when clicking a directory in dropbar, always expand it, do not open it in netrw (neotree is used for navigating directories)
 => probably see opts.menu.keymaps LeftMouse (or read click_at code)
-* bufferline misses suggestions/completion
 * need a way to open all LSP errors in a window
 => would be nice if clicking on the error icons in lualine would open that window
 * create a custom window (nui?) with entries for opening various tools or making actions
@@ -62,3 +56,11 @@ lesser
 ==> changed keybinds
 * can't close message popups
 => changed display
+* autocompletion is again bound to up/down keys
+=> upgraded blink-cmp
+* when saving it strips trailing spaces
+=> was actually caused by an editorconfig file
+* show directory of the file somewhere, or two files with the same name are not distinguishable
+=> removed bufferline
+* impossible to move tabs
+=> removed bufferline
