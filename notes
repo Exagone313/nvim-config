@@ -1,10 +1,9 @@
 # issues/ideas
 
 major
+* need a simple way to add a new line without continuing comments
 * autocompletion does no contain values that would be completed by ctrl+P at all
 => seem to work in markdown...
-* trigger editorconfig check on changing FileType (should do it already according to the docs?)
-=> seems an issue with expandtab in either guess-indent or editorconfig
 
 lesser
 * add maps for fzf-lua
@@ -64,3 +63,6 @@ lesser
 * impossible to move tabs
 => removed bufferline
 * ctrl+p is bound by blink-cmp when it is open
+* trigger editorconfig check on changing FileType (should do it already according to the docs?)
+=> seems an issue with expandtab in either guess-indent or editorconfig
+==> cannot reproduce, probably fixed with guess-indent changes
