@@ -10,7 +10,9 @@ vim.opt.listchars = {tab = "  ", trail = " ", nbsp = " ", lead = "·"}
 vim.opt.scrolloff = 2
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
+vim.opt.showtabline = 2
 
 vim.g.mapleader = ","
+vim.g.load_black = false
 
 vim.go.pumheight = 15

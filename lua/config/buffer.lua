@@ -33,7 +33,9 @@ require("ibl").setup{
 
 require("mini.trailspace").setup()
 
-require("guess-indent").setup()
+require("guess-indent").setup{
+	override_editorconfig = true,
+}
 
 vim.keymap.set({"n", "v"}, "<Leader>p", '"+p')
 vim.keymap.set({"n", "v"}, "<Leader>P", '"+P')
