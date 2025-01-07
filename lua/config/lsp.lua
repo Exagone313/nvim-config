@@ -87,6 +87,7 @@ require("blink-cmp").setup{
 		cmdline = {},
 	},
 	keymap = {
+		preset = 'none',
 		['<C-space>'] = { 'show', 'show_documentation', 'hide_documentation' },
 		['<C-c>'] = { 'hide', 'fallback' },
 		['<C-Enter>'] = { 'select_and_accept', 'fallback' },
