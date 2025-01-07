@@ -94,9 +94,7 @@ require("blink-cmp").setup{
 		['<Tab>'] = { 'snippet_forward', 'fallback' },
 		['<S-Tab>'] = { 'snippet_backward', 'fallback' },
 	},
-	trigger = {
-		signature_help = {
-			enabled = true,
-		},
+	signature = {
+		enabled = true,
 	},
 }
