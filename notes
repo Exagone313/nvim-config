@@ -1,6 +1,8 @@
 # issues/ideas
 
 major
+* not easy to differentiate tabs with files with the same name
+=> was worse with bufferline
 * need a simple way to add a new line without continuing comments
 * autocompletion does no contain values that would be completed by ctrl+P at all
 => seem to work in markdown...
