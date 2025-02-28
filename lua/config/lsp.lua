@@ -83,8 +83,8 @@ for server, options in pairs(servers) do
 end
 
 require("blink-cmp").setup{
-	sources = {
-		cmdline = {},
+	cmdline = {
+		enabled = false,
 	},
 	keymap = {
 		preset = 'none',
