@@ -21,7 +21,7 @@
 	url = https://github.com/ibhagwan/fzf-lua.git
 [submodule "pack/submodule/start/gitsigns"]
 	path = pack/submodule/start/gitsigns
-	url = https://github.com/lewis6991/gitsigns.nvim
+	url = https://github.com/lewis6991/gitsigns.nvim.git
 [submodule "pack/submodule/start/ibl"]
 	path = pack/submodule/start/ibl
 	url = https://github.com/lukas-reineke/indent-blankline.nvim.git
@@ -36,7 +36,7 @@
 	url = https://github.com/MunifTanjim/nui.nvim.git
 [submodule "pack/submodule/start/neo-tree"]
 	path = pack/submodule/start/neo-tree
-	url = https://github.com/Exagone313/neo-tree.nvim.git
+	url = https://github.com/nvim-neo-tree/neo-tree.nvim.git
 [submodule "pack/submodule/start/plenary"]
 	path = pack/submodule/start/plenary
 	url = https://github.com/nvim-lua/plenary.nvim.git
