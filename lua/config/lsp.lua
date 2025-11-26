@@ -51,14 +51,16 @@ end
 -- map buffer local keybindings when the language server attaches
 local servers = {
 	['bashls'] = {},
+	['biome'] = {},
 	['cssls'] = {},
 	['clangd'] = {},
 	['eslint'] = {},
 	['html'] = {},
 	['jsonls'] = {},
 	['rubocop'] = {},
-	['ruff'] = {}, -- TODO fallback to pyright, pylsp in this order
+	['ruff'] = {},
 	['terraformls'] = {},
+	['tinymist'] = {},
 	['yamlls'] = {
 		settings = {
 			yaml = {
