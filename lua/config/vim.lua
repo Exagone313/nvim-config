@@ -17,3 +17,10 @@ vim.g.mapleader = ","
 vim.g.load_black = false
 
 vim.go.pumheight = 15
+
+vim.filetype.add({
+  extension = {
+    container = "systemd",
+    pod = "systemd",
+  },
+})
