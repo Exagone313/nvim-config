@@ -55,3 +55,6 @@
 [submodule "pack/submodule/start/guess-indent"]
 	path = pack/submodule/start/guess-indent
 	url = https://github.com/Exagone313/guess-indent.nvim.git
+[submodule "pack/submodule/start/conform"]
+	path = pack/submodule/start/conform
+	url = https://github.com/stevearc/conform.nvim.git
