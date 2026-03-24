@@ -36,15 +36,13 @@ local on_attach = function(client, bufnr)
 	vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 end
 
-local _, lspconfig = pcall(require, 'lspconfig')
-
 -- This function is adapted from code made by Konstantin Gorodinskiy, Copyright 2012-2023, MIT license
 -- https://github.com/gko/vimio
-function lsp_binary_exists(server_config)
-	if not (server_config.document_config and server_config.document_config.default_config and type(server_config.document_config.default_config.cmd) == "table" and #server_config.document_config.default_config.cmd >= 1) then
+function lsp_binary_exists(server)
+	if not (vim.lsp.config[server] and type(vim.lsp.config[server].cmd) == "table" and #vim.lsp.config[server].cmd >= 1) then
 		return false
 	end
-	return vim.fn.executable(server_config.document_config.default_config.cmd[1]) == 1
+	return vim.fn.executable(vim.lsp.config[server].cmd[1]) == 1
 end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
@@ -55,6 +53,7 @@ local servers = {
 	['cssls'] = {},
 	['clangd'] = {},
 	['eslint'] = {},
+	['gopls'] = {},
 	['html'] = {},
 	['jsonls'] = {},
 	['rubocop'] = {},
@@ -76,11 +75,11 @@ local servers = {
 	},
 }
 for server, options in pairs(servers) do
-	if lspconfig[server] and lspconfig[server].setup and lsp_binary_exists(lspconfig[server]) then
+	if vim.lsp.config[server] and lsp_binary_exists(server) then
 		options.on_attach = on_attach
 		options.capabilities = require('blink-cmp').get_lsp_capabilities(options.capabilities)
-		--print(vim.inspect(options))
-		lspconfig[server].setup(options)
+		vim.lsp.config(server, options)
+		vim.lsp.enable(server)
 	end
 end
 

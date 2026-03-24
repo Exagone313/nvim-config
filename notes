@@ -1,7 +1,6 @@
 # issues/ideas
 
 major
-* `require('lspconfig')` is deprecated (see nvim-lspconfig readme)
 * not easy to differentiate tabs with files with the same name
 => was worse with bufferline
 * autocompletion does no contain values that would be completed by ctrl+P at all
