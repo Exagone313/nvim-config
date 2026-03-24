@@ -31,8 +31,8 @@ Lua configuration files are loaded in this order (see [init.lua](./init.lua)):
 
 ### Above
 
-* [nvim-notify](https://github.com/rcarriga/nvim-notify): for displaying notifications in pop-ups
-* [Noice](https://github.com/folke/noice.nvim): enter commands and searches from a pop-up in the middle of the editor
+* [nvim-notify](https://github.com/rcarriga/nvim-notify): library for displaying notifications in pop-ups, used by *Noice*
+* [Noice](https://github.com/folke/noice.nvim): enter commands and searches from a pop-up in the middle of the editor, show messages in pop-ups
 * [Which Key](https://github.com/folke/which-key.nvim): pop-up for listing key maps as I type
 * [Neo-tree](https://github.com/nvim-neo-tree/neo-tree.nvim): file manager, replaces netrw, configured to open in a pop-up
 * [Fzf-lua](https://github.com/ibhagwan/fzf-lua): fuzzy finder
@@ -53,6 +53,12 @@ Lua configuration files are loaded in this order (see [init.lua](./init.lua)):
 * [Mini Trailspace](https://github.com/nvim-mini/mini.nvim/blob/main/readmes/mini-trailspace.md): show trailing whitespaces
 * [guess-indent](https://github.com/NMAC427/guess-indent.nvim) ([fork](https://github.com/Exagone313/guess-indent.nvim)): detect file indentation style
 * [Conform](https://github.com/stevearc/conform.nvim): formatter manager
+
+### Other
+
+* [Friendly Snippets](https://github.com/rafamadriz/friendly-snippets): collection of code snippets, integrated in *Blink Completion*
+* [nui](https://github.com/MunifTanjim/nui.nvim): UI library, used by *Neo-tree* and *Noice*
+* [plenary](https://github.com/nvim-lua/plenary.nvim): utility function library, used by *Neo-tree* and *nvim-notify*
 
 ## License
 
