@@ -1,11 +1,13 @@
 # issues/ideas
 
 major
+* `require('lspconfig')` is deprecated (see nvim-lspconfig readme)
 * not easy to differentiate tabs with files with the same name
 => was worse with bufferline
-* need a simple way to add a new line without continuing comments
 * autocompletion does no contain values that would be completed by ctrl+P at all
 => seem to work in markdown...
+* make a readme with a list of packages and lua file organization
+* popup for messages is tied to the tab, new messages doesn't make it move to the current tab
 
 lesser
 * add maps for fzf-lua

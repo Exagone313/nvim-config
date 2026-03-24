@@ -11,13 +11,6 @@ require("catppuccin").setup{
 		comments = {},
 		conditionals = {},
 	},
---	custom_highlights = function(colors)
---		return {
---			Whitespace = {
---				fg = "Red",
---			},
---		}
---	end,
 	integrations = {
 		blink_cmp = true,
 		diffview = true,
