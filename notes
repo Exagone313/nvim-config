@@ -1,8 +1,14 @@
 # issues/ideas
 
 major
+* change repository name (nvim-config?)
+* mirror on gitlab.com and gitlab.ewd.app (should it be kept on github as main repo as all plugins are there?)
+* add a "cheat sheet" document for maps and commands I don't remember
+* create a leader popup with a menu to easily select various commands (like :nohl)
 * not easy to differentiate tabs with files with the same name
 => was worse with bufferline
+* ideally should have a buffer bar and a tab bar
+=> tab map should handle both bars
 * autocompletion does no contain values that would be completed by ctrl+P at all
 => seem to work in markdown...
 * make a readme with a list of packages and lua file organization
