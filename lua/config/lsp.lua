@@ -52,6 +52,7 @@ local servers = {
 	['biome'] = {},
 	['cssls'] = {},
 	['clangd'] = {},
+	['denols'] = {},
 	['eslint'] = {},
 	['gopls'] = {},
 	['html'] = {},
