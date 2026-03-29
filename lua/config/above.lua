@@ -25,6 +25,7 @@ require("neo-tree").setup{
 		mappings = {
 			["<LeftRelease>"] = "open_tabnew",
 			["<2-LeftMouse>"] = "open_tabnew",
+			["e"] = "expand_all_subnodes",
 		},
 	},
 	filesystem = {
