@@ -63,9 +63,7 @@ require("which-key").add({
 local menu = require("config.menu")
 require("which-key").add({
 	"<Leader><Space>",
-	function()
-		menu:mount()
-	end,
+	menu.open,
 	desc = "Leader menu",
 })
 require("fzf-lua").setup()
