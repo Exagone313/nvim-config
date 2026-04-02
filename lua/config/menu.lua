@@ -7,13 +7,11 @@ function M.open()
 	--local bufnr = vim.api.nvim_get_current_buf()
 
 	local function hide_highlights()
-		vim.schedule(function()
-			if vim.v.hlsearch == 1 then
-				vim.cmd("nohlsearch")
-			else
-				vim.cmd("set hlsearch")
-			end
-		end)
+		if vim.v.hlsearch == 1 then
+			vim.cmd("nohlsearch")
+		else
+			vim.cmd("set hlsearch")
+		end
 	end
 
 	local menu = Menu({
