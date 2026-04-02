@@ -3,17 +3,17 @@ local event = require("nui.utils.autocmd").event
 
 local M = {}
 
-
 function M.open()
-	local bufnr = vim.api.nvim_get_current_buf()
-	print(bufnr)
+	--local bufnr = vim.api.nvim_get_current_buf()
 
 	local function hide_highlights()
-		if vim.v.hlsearch then
-			vim.cmd("nohlsearch")
-		else
-			vim.b[bufnr].hlsearch = true
-		end
+		vim.schedule(function()
+			if vim.v.hlsearch == 1 then
+				vim.cmd("nohlsearch")
+			else
+				vim.cmd("set hlsearch")
+			end
+		end)
 	end
 
 	local menu = Menu({
