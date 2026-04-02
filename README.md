@@ -10,6 +10,7 @@ Lua configuration files are loaded in this order (see [init.lua](./init.lua)):
 * [treesitter.lua](./lua/config/treesitter.lua): Tree-sitter configuration
 * [lsp.lua](./lua/config/lsp.lua): configuration for Language Server Protocol and completion
 * [above.lua](./lua/config/above.lua): configuration for plugins that are displayed above buffer
+* [menu.lua](./lua/config/menu.lua): custom menu opened with `<leader><Space>`
 * [top.lua](./lua/config/top.lua): configuration for tabs and plugins that are displayed on top of the buffer
 * [bottom.lua](./lua/config/bottom.lua): configuration for plugins that are displayed below the buffer (like statusline)
 * [buffer.lua](./lua/config/buffer.lua): configuration for buffer mapping and plugins that interact with the buffer

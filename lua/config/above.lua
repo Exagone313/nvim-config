@@ -60,4 +60,12 @@ require("which-key").add({
 	end,
 	desc = "Neotree",
 })
+local menu = require("config.menu")
+require("which-key").add({
+	"<Leader><Space>",
+	function()
+		menu:mount()
+	end,
+	desc = "Leader menu",
+})
 require("fzf-lua").setup()
