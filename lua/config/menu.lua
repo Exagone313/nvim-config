@@ -6,7 +6,7 @@ local M = {}
 function M.open()
 	--local bufnr = vim.api.nvim_get_current_buf()
 
-	local function hide_highlights()
+	local function toggle_highlights()
 		if vim.v.hlsearch == 1 then
 			vim.cmd("nohlsearch")
 		else
@@ -28,8 +28,8 @@ function M.open()
 	},
 	{
 		lines = {
-			Menu.item("Hide highlights", {
-				action = hide_highlights,
+			Menu.item("Toggle highlights", {
+				action = toggle_highlights,
 			}),
 			Menu.item("test"),
 			Menu.item("test"),
