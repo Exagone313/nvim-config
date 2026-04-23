@@ -31,9 +31,18 @@ function M.open()
 			Menu.item("Toggle highlights", {
 				action = toggle_highlights,
 			}),
-			Menu.item("test"),
-			Menu.item("test"),
-			Menu.item("test"),
+			Menu.separator(" Git ", {
+			}),
+			Menu.item("Git diff", {
+				action = function()
+					vim.cmd("DiffviewOpen")
+				end
+			}),
+			Menu.item("Git blame", {
+				action = function()
+					vim.cmd("Gitsigns blame")
+				end
+			}),
 		},
 		keymap = {
 			focus_next = { "j", "<Down>", "<Tab>" },
