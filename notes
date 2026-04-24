@@ -1,3 +1,24 @@
+above:
+* noice: fix changing tab won't reopen popup
+* neo-tree setup, maybe move to "side"
+bottom:
+* lualine setup
+buffer:
+* conform: more formatters? enable on availability with backups?
+* formatexpr on filetype only (like with nvim-treesitter indentexpr)
+lsp:
+* review keymaps (most are never used, move to menu?)
+* fallback servers?
+* blink-cmp setup
+menu:
+* entry to run guess-indent
+top:
+* ideally, manage both tabs and buffers of the tab
+vim:
+* review listchars
+
+---
+
 # issues/ideas
 
 major
