@@ -6,6 +6,11 @@ require("lualine").setup {
 		theme = "catppuccin",
 		section_separators = "",
 		component_separators = "",
+		disabled_filetypes = {
+			statusline = {
+				"neo-tree",
+			},
+		},
 	},
 	sections = {
 		lualine_a = {
@@ -28,4 +33,28 @@ require("lualine").setup {
 		lualine_y = {},
 		lualine_z = {}
 	},
+	tabline = {
+		lualine_a = {
+		},
+		lualine_b = {
+			{
+				'tabs',
+				mode = 1,
+			}
+		},
+		lualine_c = {
+		},
+		lualine_x = {
+			{
+				'buffers',
+				filetype_names = {
+					["neo-tree"] = "NeoTree",
+				},
+			}
+		},
+		lualine_y = {
+		},
+		lualine_z = {
+		}
+	}
 }
