@@ -53,6 +53,18 @@ local function tab_has_empty_scratch_window()
 	return false
 end
 
+-- Resolve the path of the tree node currently under the cursor.
+local function node_path(state)
+	local ok, node = pcall(state.tree.get_node, state.tree)
+	if not ok or not node then
+		return nil
+	end
+	if node.type ~= "file" then
+		return nil
+	end
+	return node.path or node:get_id()
+end
+
 local function open_node(state)
 	local commands = require("neo-tree.sources.filesystem.commands")
 	-- IDE mode: always open in the previously-used split (handled by
@@ -72,9 +84,20 @@ local function open_node(state)
 	-- has one (e.g. fresh `nvim` then <Leader>e); otherwise open a new tab.
 	if tab_has_empty_scratch_window() then
 		commands.open(state)
-	else
-		commands.open_tabnew(state)
+		return
 	end
+	-- Otherwise: open in a new tab. Don't go through neo-tree's open_file
+	-- (which routes through state.current_position and get_appropriate_window
+	-- and has surprising edge cases for floats); just close the tree and run
+	-- :tabnew ourselves.
+	local path = node_path(state)
+	if not path then
+		-- Not a file (directory etc.): fall back to neo-tree's own handling.
+		commands.open(state)
+		return
+	end
+	require("neo-tree.command").execute({action = "close"})
+	vim.cmd("tabnew " .. vim.fn.fnameescape(path))
 end
 
 require("neo-tree").setup{
