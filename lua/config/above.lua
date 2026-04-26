@@ -18,9 +18,49 @@ require("which-key").add({
 	desc = "Which Key",
 })
 
+-- Returns true if the given buffer is an "empty scratch": no file, not modified.
+local function is_empty_scratch(bufnr)
+	if not bufnr or not vim.api.nvim_buf_is_valid(bufnr) then
+		return false
+	end
+	if vim.api.nvim_buf_get_name(bufnr) ~= "" then
+		return false
+	end
+	if vim.bo[bufnr].modified then
+		return false
+	end
+	local lines = vim.api.nvim_buf_get_lines(bufnr, 0, -1, false)
+	return #lines == 0 or (#lines == 1 and lines[1] == "")
+end
+
+-- Picks the buffer that the file would land in if we used neo-tree's plain
+-- "open" (which targets the previously-focused / first non-tree window).
+local function target_buffer_for_open(state)
+	-- When neo-tree took over the current window (position = "current"),
+	-- the tree's window IS the target — replacing it with the file is desired.
+	if state and state.current_position == "current" then
+		return vim.api.nvim_get_current_buf()
+	end
+	local utils = require("neo-tree.utils")
+	local winid = utils.get_appropriate_window(state)
+	if winid and vim.api.nvim_win_is_valid(winid) then
+		return vim.api.nvim_win_get_buf(winid)
+	end
+	return nil
+end
+
 local function open_node(state)
 	local commands = require("neo-tree.sources.filesystem.commands")
+	-- IDE mode: always open in the previously-used split (handled by
+	-- open_files_in_last_window + commands.open).
 	if require("config.ide").is_enabled() then
+		commands.open(state)
+		return
+	end
+	-- Float mode: replace the underlying buffer only if it's an empty
+	-- unnamed scratch; otherwise open in a new tab. This applies uniformly
+	-- to click and <CR> (default <CR> would have edited in place).
+	if is_empty_scratch(target_buffer_for_open(state)) then
 		commands.open(state)
 	else
 		commands.open_tabnew(state)
