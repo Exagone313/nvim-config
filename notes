@@ -1,6 +1,3 @@
-above:
-* noice: fix changing tab won't reopen popup
-* neo-tree setup, maybe move to "side"
 bottom:
 * lualine setup
 buffer:
@@ -11,12 +8,16 @@ lsp:
 * fallback servers?
 * blink-cmp setup
 menu:
+* hide leader menu when clicking out of it
 * entry to run guess-indent
 * close diffview when selecting git diff?
 top:
 * ideally, manage both tabs and buffers of the tab
+* in dropbar, when opening directory with left click, it directly closes neo-tree popup on click release
 vim:
 * review listchars
+common:
+* hide dropbar on neo-tree
 
 ---
 
