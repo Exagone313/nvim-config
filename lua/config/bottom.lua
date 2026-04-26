@@ -39,7 +39,9 @@ require("lualine").setup {
 		lualine_b = {
 			{
 				'tabs',
+				max_length = vim.o.columns,
 				mode = 1,
+				path = 1,
 			}
 		},
 		lualine_c = {
