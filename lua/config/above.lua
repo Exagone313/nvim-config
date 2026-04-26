@@ -18,7 +18,7 @@ require("which-key").add({
 	desc = "Which Key",
 })
 
--- Returns true if the given buffer is an "empty scratch": no file, not modified.
+-- True if the buffer is an unnamed, unmodified, empty scratch buffer.
 local function is_empty_scratch(bufnr)
 	if not bufnr or not vim.api.nvim_buf_is_valid(bufnr) then
 		return false
@@ -29,24 +29,28 @@ local function is_empty_scratch(bufnr)
 	if vim.bo[bufnr].modified then
 		return false
 	end
+	if vim.bo[bufnr].filetype == "neo-tree" then
+		return false
+	end
 	local lines = vim.api.nvim_buf_get_lines(bufnr, 0, -1, false)
 	return #lines == 0 or (#lines == 1 and lines[1] == "")
 end
 
--- Picks the buffer that the file would land in if we used neo-tree's plain
--- "open" (which targets the previously-focused / first non-tree window).
-local function target_buffer_for_open(state)
-	-- When neo-tree took over the current window (position = "current"),
-	-- the tree's window IS the target — replacing it with the file is desired.
-	if state and state.current_position == "current" then
-		return vim.api.nvim_get_current_buf()
+-- True if the current tab has at least one non-tree, non-floating window
+-- whose buffer is an empty scratch. This is what we want to "replace"
+-- instead of opening a new tab.
+local function tab_has_empty_scratch_window()
+	local tabid = vim.api.nvim_get_current_tabpage()
+	for _, win in ipairs(vim.api.nvim_tabpage_list_wins(tabid)) do
+		local cfg_ok, cfg = pcall(vim.api.nvim_win_get_config, win)
+		if cfg_ok and cfg.relative == "" then -- non-floating
+			local buf = vim.api.nvim_win_get_buf(win)
+			if vim.bo[buf].filetype ~= "neo-tree" and is_empty_scratch(buf) then
+				return true
+			end
+		end
 	end
-	local utils = require("neo-tree.utils")
-	local winid = utils.get_appropriate_window(state)
-	if winid and vim.api.nvim_win_is_valid(winid) then
-		return vim.api.nvim_win_get_buf(winid)
-	end
-	return nil
+	return false
 end
 
 local function open_node(state)
@@ -57,10 +61,16 @@ local function open_node(state)
 		commands.open(state)
 		return
 	end
-	-- Float mode: replace the underlying buffer only if it's an empty
-	-- unnamed scratch; otherwise open in a new tab. This applies uniformly
-	-- to click and <CR> (default <CR> would have edited in place).
-	if is_empty_scratch(target_buffer_for_open(state)) then
+	-- "current" position means neo-tree took over the user's window
+	-- (typically via <Leader>e on an empty buffer) and is meant to be
+	-- replaced by whatever they pick.
+	if state and state.current_position == "current" then
+		commands.open(state)
+		return
+	end
+	-- Float over an existing layout: replace the empty scratch if the tab
+	-- has one (e.g. fresh `nvim` then <Leader>e); otherwise open a new tab.
+	if tab_has_empty_scratch_window() then
 		commands.open(state)
 	else
 		commands.open_tabnew(state)
