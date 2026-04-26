@@ -17,14 +17,26 @@ require("which-key").add({
 	end,
 	desc = "Which Key",
 })
+
+local function open_node(state)
+	local commands = require("neo-tree.sources.filesystem.commands")
+	if require("config.ide").is_enabled() then
+		commands.open(state)
+	else
+		commands.open_tabnew(state)
+	end
+end
+
 require("neo-tree").setup{
 	close_if_last_window = true,
+	open_files_in_last_window = true,
 	window = {
 		position = "float",
 		mappings = {
-			["<LeftRelease>"] = "open_tabnew",
-			["<2-LeftMouse>"] = "open_tabnew",
-			["e"] = "expand_all_subnodes",
+			["<LeftRelease>"] = open_node,
+			["<2-LeftMouse>"] = open_node,
+			["<CR>"]          = open_node,
+			["e"]             = "expand_all_subnodes",
 		},
 	},
 	filesystem = {
@@ -40,6 +52,13 @@ require("neo-tree").setup{
 		{
 			event = "file_open_requested",
 			handler = function(arg)
+				local pos = arg and arg.state and arg.state.current_position
+				if pos == "left" or pos == "right" or pos == "top" or pos == "bottom" then
+					return
+				end
+				if require("config.ide").is_enabled() then
+					return
+				end
 				require("neo-tree.command").execute({action = "close"})
 			end
 		}
@@ -48,6 +67,15 @@ require("neo-tree").setup{
 require("which-key").add({
 	"<Leader>e",
 	function()
+		if require("config.ide").is_enabled() then
+			require("neo-tree.command").execute({
+				action   = "focus",
+				source   = "filesystem",
+				position = "left",
+				reveal   = true,
+			})
+			return
+		end
 		local buffer_id = vim.api.nvim_get_current_buf()
 		if vim.fn.expand("%:p") == "" and not vim.api.nvim_buf_get_option(buffer_id, "modified") then
 			require("neo-tree.command").execute({action = "focus", position = "current"})

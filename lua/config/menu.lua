@@ -19,7 +19,7 @@ function M.open()
 
 	local menu = Menu({
 		position    = "50%",
-		size        = { width = 32, height = 7 },
+		size        = { width = 32, height = 8 },
 		border      = {
 			style = "rounded",
 			text  = { top = " Leader ", top_align = "center" },
@@ -33,6 +33,11 @@ function M.open()
 		lines = {
 			Menu.item("Toggle highlights", {
 				action = toggle_highlights,
+			}),
+			Menu.item("IDE mode", {
+				action = function()
+					require("config.ide").toggle()
+				end,
 			}),
 			Menu.separator(" Git ", {
 			}),
