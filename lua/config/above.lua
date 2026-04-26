@@ -18,41 +18,6 @@ require("which-key").add({
 	desc = "Which Key",
 })
 
--- True if the buffer is an unnamed, unmodified, empty scratch buffer.
-local function is_empty_scratch(bufnr)
-	if not bufnr or not vim.api.nvim_buf_is_valid(bufnr) then
-		return false
-	end
-	if vim.api.nvim_buf_get_name(bufnr) ~= "" then
-		return false
-	end
-	if vim.bo[bufnr].modified then
-		return false
-	end
-	if vim.bo[bufnr].filetype == "neo-tree" then
-		return false
-	end
-	local lines = vim.api.nvim_buf_get_lines(bufnr, 0, -1, false)
-	return #lines == 0 or (#lines == 1 and lines[1] == "")
-end
-
--- True if the current tab has at least one non-tree, non-floating window
--- whose buffer is an empty scratch. This is what we want to "replace"
--- instead of opening a new tab.
-local function tab_has_empty_scratch_window()
-	local tabid = vim.api.nvim_get_current_tabpage()
-	for _, win in ipairs(vim.api.nvim_tabpage_list_wins(tabid)) do
-		local cfg_ok, cfg = pcall(vim.api.nvim_win_get_config, win)
-		if cfg_ok and cfg.relative == "" then -- non-floating
-			local buf = vim.api.nvim_win_get_buf(win)
-			if vim.bo[buf].filetype ~= "neo-tree" and is_empty_scratch(buf) then
-				return true
-			end
-		end
-	end
-	return false
-end
-
 -- Resolve the path of the tree node currently under the cursor.
 local function node_path(state)
 	local ok, node = pcall(state.tree.get_node, state.tree)
@@ -65,39 +30,47 @@ local function node_path(state)
 	return node.path or node:get_id()
 end
 
+-- True if the current tab has any non-floating, non-tree window whose buffer
+-- is unnamed AND modified — i.e. the user has unsaved typed content in a
+-- scratch buffer that we mustn't lose by replacing it.
+local function tab_has_unnamed_modified_window()
+	local tabid = vim.api.nvim_get_current_tabpage()
+	for _, win in ipairs(vim.api.nvim_tabpage_list_wins(tabid)) do
+		local cfg_ok, cfg = pcall(vim.api.nvim_win_get_config, win)
+		if cfg_ok and cfg.relative == "" then -- non-floating
+			local buf = vim.api.nvim_win_get_buf(win)
+			if vim.api.nvim_buf_is_valid(buf)
+				and vim.bo[buf].filetype ~= "neo-tree"
+				and vim.api.nvim_buf_get_name(buf) == ""
+				and vim.bo[buf].modified
+			then
+				return true
+			end
+		end
+	end
+	return false
+end
+
 local function open_node(state)
 	local commands = require("neo-tree.sources.filesystem.commands")
-	-- IDE mode: always open in the previously-used split (handled by
+	-- IDE mode: open in the previously-used split (handled by
 	-- open_files_in_last_window + commands.open).
 	if require("config.ide").is_enabled() then
 		commands.open(state)
 		return
 	end
-	-- "current" position means neo-tree took over the user's window
-	-- (typically via <Leader>e on an empty buffer) and is meant to be
-	-- replaced by whatever they pick.
-	if state and state.current_position == "current" then
-		commands.open(state)
-		return
+	-- Default: open in the current tab (replacing whatever's there). The
+	-- only exception is an unnamed, modified scratch buffer in this tab,
+	-- which we shouldn't clobber — open in a new tab instead.
+	if tab_has_unnamed_modified_window() then
+		local path = node_path(state)
+		if path then
+			require("neo-tree.command").execute({action = "close"})
+			vim.cmd("tabnew " .. vim.fn.fnameescape(path))
+			return
+		end
 	end
-	-- Float over an existing layout: replace the empty scratch if the tab
-	-- has one (e.g. fresh `nvim` then <Leader>e); otherwise open a new tab.
-	if tab_has_empty_scratch_window() then
-		commands.open(state)
-		return
-	end
-	-- Otherwise: open in a new tab. Don't go through neo-tree's open_file
-	-- (which routes through state.current_position and get_appropriate_window
-	-- and has surprising edge cases for floats); just close the tree and run
-	-- :tabnew ourselves.
-	local path = node_path(state)
-	if not path then
-		-- Not a file (directory etc.): fall back to neo-tree's own handling.
-		commands.open(state)
-		return
-	end
-	require("neo-tree.command").execute({action = "close"})
-	vim.cmd("tabnew " .. vim.fn.fnameescape(path))
+	commands.open(state)
 end
 
 require("neo-tree").setup{
