@@ -42,7 +42,7 @@
 	url = https://github.com/nvim-lua/plenary.nvim.git
 [submodule "pack/submodule/start/noice"]
 	path = pack/submodule/start/noice
-	url = https://github.com/folke/noice.nvim.git
+	url = https://github.com/Exagone313/noice.nvim.git
 [submodule "pack/submodule/start/notify"]
 	path = pack/submodule/start/notify
 	url = https://github.com/rcarriga/nvim-notify.git
