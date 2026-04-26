@@ -40,6 +40,12 @@ require("lualine").setup {
 			{
 				'tabs',
 				mode = 1,
+				on_click = function(_clicks, button, _mod)
+					vim.cmd("echo " .. button)
+					if button == "m" then
+						vim.cmd("tabclose")
+					end
+				end,
 			}
 		},
 		lualine_c = {
