@@ -45,12 +45,6 @@ require("lualine").setup {
 		lualine_c = {
 		},
 		lualine_x = {
-			{
-				'buffers',
-				filetype_names = {
-					["neo-tree"] = "NeoTree",
-				},
-			}
 		},
 		lualine_y = {
 		},
