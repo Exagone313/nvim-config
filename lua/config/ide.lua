@@ -44,6 +44,16 @@ local function close_side_tree()
 		source   = "filesystem",
 		position = "left",
 	})
+	-- Reset the per-tab filesystem state's current_position so a later
+	-- :Neotree call without an explicit position falls back to the
+	-- configured default (float) instead of resurrecting "left".
+	local ok, manager = pcall(require, "neo-tree.sources.manager")
+	if ok then
+		local state = manager.get_state("filesystem")
+		if state then
+			state.current_position = nil
+		end
+	end
 end
 
 ---@param tabid integer? defaults to current tab
