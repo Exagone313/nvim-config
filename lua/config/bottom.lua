@@ -6,12 +6,8 @@ require("lualine").setup {
 		theme = "catppuccin",
 		section_separators = "",
 		component_separators = "",
-		disabled_filetypes = {
-			statusline = {
-				"neo-tree",
-			},
-		},
 	},
+	extensions = {"neo-tree"},
 	sections = {
 		lualine_a = {
 			function()

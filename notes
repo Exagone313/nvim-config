@@ -18,6 +18,8 @@ vim:
 * review listchars
 common:
 * hide dropbar on neo-tree
+* when opening popup neo-tree, opening file, then enabling IDE mode, lualine's neo-tree extension show the wrong path in status bar - also this path isn't actualized
+=> seems like side neo-tree refreshes on save though
 
 ---
 
@@ -33,7 +35,6 @@ major
 => tab map should handle both bars
 * autocompletion does no contain values that would be completed by ctrl+P at all
 => seem to work in markdown...
-* popup for messages is tied to the tab, new messages doesn't make it move to the current tab
 
 lesser
 * add maps for fzf-lua
