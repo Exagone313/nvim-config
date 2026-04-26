@@ -30,7 +30,7 @@
 	url = https://github.com/Bekaboo/dropbar.nvim.git
 [submodule "pack/submodule/start/lualine"]
 	path = pack/submodule/start/lualine
-	url = https://github.com/nvim-lualine/lualine.nvim.git
+	url = https://github.com/Exagone313/lualine.nvim.git
 [submodule "pack/submodule/start/nui"]
 	path = pack/submodule/start/nui
 	url = https://github.com/MunifTanjim/nui.nvim.git
