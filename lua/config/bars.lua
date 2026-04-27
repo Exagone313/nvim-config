@@ -15,8 +15,8 @@ require("lualine").setup {
 				return ("      " .. mode):sub(-7)
 			end
 		},
-		lualine_b = {'branch', 'diff', 'diagnostics'},
-		lualine_c = {'filename'},
+		lualine_b = {'branch', 'diff'},
+		lualine_c = {'filename', 'diagnostics'},
 		lualine_x = {'lsp_status', 'encoding', 'fileformat', 'filetype'},
 		lualine_y = {'progress', 'selectioncount', 'searchcount'},
 		lualine_z = {'location'}
