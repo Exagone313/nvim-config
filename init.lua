@@ -6,9 +6,9 @@ local config_names = {
 	"colors",
 	"treesitter",
 	"lsp",
+	"directory",
 	"above",
-	"top",
-	"bottom",
+	"bars",
 	"buffer",
 }
 
