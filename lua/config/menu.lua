@@ -7,8 +7,6 @@ local event = require("nui.utils.autocmd").event
 local M = {}
 
 function M.open()
-	--local bufnr = vim.api.nvim_get_current_buf()
-
 	local function toggle_highlights()
 		if vim.v.hlsearch == 1 then
 			vim.cmd("nohlsearch")
@@ -18,7 +16,7 @@ function M.open()
 	end
 
 	local lines = {
-		Menu.item("Toggle highlights", {
+		Menu.item("Search highlights", {
 			action = toggle_highlights,
 		}),
 		Menu.separator(" List "),
