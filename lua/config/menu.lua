@@ -17,9 +17,57 @@ function M.open()
 		end
 	end
 
+	local lines = {
+		Menu.item("Toggle highlights", {
+			action = toggle_highlights,
+		}),
+		Menu.separator(" List "),
+		Menu.item("Tabs", {
+			action = function()
+				vim.cmd("FzfLua tabs")
+			end
+		}),
+		Menu.item("Buffers", {
+			action = function()
+				vim.cmd("FzfLua buffers")
+			end
+		}),
+		Menu.item("Buffers in tab", {
+			action = function()
+				vim.cmd("FzfLua tabs current_tab_only=true")
+			end
+		}),
+		Menu.separator(" Git "),
+		Menu.item("Git diff", {
+			action = function()
+				vim.cmd("DiffviewOpen")
+			end
+		}),
+		Menu.item("Git blame", {
+			action = function()
+				vim.cmd("Gitsigns blame")
+			end
+		}),
+		Menu.separator(" Other "),
+		Menu.item("IDE mode", {
+			action = function()
+				require("config.ide").toggle()
+			end,
+		}),
+	}
+
 	local menu = Menu({
 		position    = "50%",
-		size        = { width = 32, height = 8 },
+		size        = {
+			width = 32,
+			height = math.max(
+				2,
+				math.min(
+					#lines,
+					vim.o.lines - 6,
+				),
+			),
+		},
 		border      = {
 			style = "rounded",
 			text  = { top = " Leader ", top_align = "center" },
@@ -30,38 +78,7 @@ function M.open()
 		},
 	},
 	{
-		lines = {
-			Menu.item("Toggle highlights", {
-				action = toggle_highlights,
-			}),
-			Menu.item("IDE mode", {
-				action = function()
-					require("config.ide").toggle()
-				end,
-			}),
-			Menu.separator(" List "),
-			Menu.item("Tabs", {
-				action = function()
-					vim.cmd("FzfLua tabs")
-				end
-			}),
-			Menu.item("Buffers in tab", {
-				action = function()
-					vim.cmd("FzfLua tabs current_tab_only=true")
-				end
-			}),
-			Menu.separator(" Git "),
-			Menu.item("Git diff", {
-				action = function()
-					vim.cmd("DiffviewOpen")
-				end
-			}),
-			Menu.item("Git blame", {
-				action = function()
-					vim.cmd("Gitsigns blame")
-				end
-			}),
-		},
+		lines = lines,
 		keymap = {
 			focus_next = { "j", "<Down>", "<Tab>" },
 			focus_prev = { "k", "<Up>", "<S-Tab>" },
