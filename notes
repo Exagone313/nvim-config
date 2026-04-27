@@ -10,7 +10,6 @@ menu:
 * entry to run guess-indent
 * close diffview when selecting git diff?
 top:
-* ideally, manage both tabs and buffers of the tab
 * in dropbar, when opening directory with left click, it directly closes neo-tree popup on click release
 vim:
 * review listchars
@@ -24,15 +23,11 @@ major
 * mirror on gitlab.com and gitlab.ewd.app (should it be kept on github as main repo as all plugins are there?)
 * add a "cheat sheet" document for maps and commands I don't remember
 * not easy to differentiate tabs with files with the same name
-=> was worse with bufferline
-* ideally should have a buffer bar and a tab bar
-=> tab map should handle both bars
 * autocompletion does no contain values that would be completed by ctrl+P at all
 => seem to work in markdown...
+* need a strategy for looking for files (by name and/or content) while navigating directories in neotree and/or FzfLua
 
 lesser
-* need a way to open all LSP errors in a window
-=> would be nice if clicking on the error icons in lualine would open that window
 * https://github.com/ptdewey/yankbank-nvim or https://github.com/gbprod/yanky.nvim
 => yanky needs https://github.com/stevearc/dressing.nvim afaik
 * better neotree controls:
@@ -40,5 +35,4 @@ lesser
 => show H, the key to show hidden files, at the end of hidden item line
 => if possible, disable visual and hide cursor (keep only the line)
 * select a help page in FzfLua and then open it in a new tab (full window)
-* need a strategy for looking for files (by name and/or content) while navigating directories in neotree
 * search for selected text (escape it)
