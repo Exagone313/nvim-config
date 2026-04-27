@@ -60,13 +60,8 @@ function M.open()
 		position    = "50%",
 		size        = {
 			width = 32,
-			height = math.max(
-				2,
-				math.min(
-					#lines,
-					vim.o.lines - 6
-				)
-			),
+			height = math.max(2,
+				math.min(#lines, vim.o.lines - 6)),
 		},
 		border      = {
 			style = "rounded",
