@@ -29,26 +29,6 @@ require("lualine").setup {
 		lualine_y = {},
 		lualine_z = {}
 	},
-	tabline = {
-		lualine_a = {
-		},
-		lualine_b = {
-			{
-				'tabs',
-				max_length = vim.o.columns,
-				mode = 1,
-				path = 1,
-			}
-		},
-		lualine_c = {
-		},
-		lualine_x = {
-		},
-		lualine_y = {
-		},
-		lualine_z = {
-		}
-	}
 }
 require("dropbar").setup{
 	menu = {
