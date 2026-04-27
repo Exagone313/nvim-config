@@ -39,8 +39,18 @@ function M.open()
 					require("config.ide").toggle()
 				end,
 			}),
-			Menu.separator(" Git ", {
+			Menu.separator(" List "),
+			Menu.item("Tabs", {
+				action = function()
+					vim.cmd("FzfLua tabs")
+				end
 			}),
+			Menu.item("Buffers in tab", {
+				action = function()
+					vim.cmd("FzfLua tabs current_tab_only=true")
+				end
+			}),
+			Menu.separator(" Git "),
 			Menu.item("Git diff", {
 				action = function()
 					vim.cmd("DiffviewOpen")

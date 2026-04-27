@@ -14,10 +14,6 @@ top:
 * in dropbar, when opening directory with left click, it directly closes neo-tree popup on click release
 vim:
 * review listchars
-common:
-* hide dropbar on neo-tree
-* when opening popup neo-tree, opening file, then enabling IDE mode, lualine's neo-tree extension show the wrong path in status bar - also this path isn't actualized
-=> seems like side neo-tree refreshes on save though
 
 ---
 

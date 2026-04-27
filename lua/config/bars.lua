@@ -6,8 +6,8 @@ require("lualine").setup {
 		theme = "catppuccin",
 		section_separators = "",
 		component_separators = "",
+		disabled_filetypes = {'neo-tree'},
 	},
-	extensions = {"neo-tree"},
 	sections = {
 		lualine_a = {
 			function()
@@ -30,9 +30,19 @@ require("lualine").setup {
 		lualine_z = {}
 	},
 }
+
+local default_dropbar_enable = require('dropbar.configs').opts.bar.enable
 require("dropbar").setup{
 	menu = {
 		preview = false,
+	},
+	bar = {
+		enable = function(buf, win, _)
+			if vim.bo[buf].bt == 'terminal' or vim.bo[buf].ft == 'neo-tree' then
+				return false
+			end
+			return default_dropbar_enable(buf, win, nil)
+		end,
 	},
 }
 
