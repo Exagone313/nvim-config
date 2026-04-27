@@ -24,4 +24,12 @@ require("which-key").add({
 	menu.open,
 	desc = "Leader menu",
 })
-require("fzf-lua").setup()
+require("fzf-lua").setup({
+	tabs = {
+		keymap = {
+			fzf = {
+				["focus"] = [[transform:[ {4} = 0 ] && case "$FZF_ACTION" in *up) echo up ;; *) echo down ;; esac]],
+			},
+		},
+	},
+})
