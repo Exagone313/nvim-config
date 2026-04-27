@@ -16,7 +16,15 @@ require("lualine").setup {
 			end
 		},
 		lualine_b = {'branch', 'diff'},
-		lualine_c = {'filename', 'diagnostics'},
+		lualine_c = {
+			'filename',
+			{
+				'diagnostics',
+				on_click = function()
+					vim.cmd("FzfLua lsp_document_diagnostics")
+				end,
+			},
+		},
 		lualine_x = {'lsp_status', 'encoding', 'fileformat', 'filetype', 'filesize'},
 		lualine_y = {'progress', 'searchcount'},
 		lualine_z = {'selectioncount', 'location'}
