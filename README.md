@@ -9,10 +9,10 @@ Lua configuration files are loaded in this order (see [init.lua](./init.lua)):
 * [colors.lua](./lua/config/colors.lua): colorscheme configuration
 * [treesitter.lua](./lua/config/treesitter.lua): Tree-sitter configuration
 * [lsp.lua](./lua/config/lsp.lua): configuration for Language Server Protocol and completion
+* [directory.lua](./lua/config/directory.lua): configuration for file/directory manager
 * [above.lua](./lua/config/above.lua): configuration for plugins that are displayed above buffer
 * [menu.lua](./lua/config/menu.lua): custom menu opened with `<leader><Space>`
-* [top.lua](./lua/config/top.lua): configuration for tabs and plugins that are displayed on top of the buffer
-* [bottom.lua](./lua/config/bottom.lua): configuration for plugins that are displayed below the buffer (like statusline)
+* [bars.lua](./lua/config/top.lua): configuration for bars displayed on top or bottom of the buffer
 * [buffer.lua](./lua/config/buffer.lua): configuration for buffer mapping and plugins that interact with the buffer
 
 ## Plugins
@@ -38,13 +38,10 @@ Lua configuration files are loaded in this order (see [init.lua](./init.lua)):
 * [Neo-tree](https://github.com/nvim-neo-tree/neo-tree.nvim): file manager, replaces netrw, configured to open in a pop-up
 * [Fzf-lua](https://github.com/ibhagwan/fzf-lua): fuzzy finder
 
-### Top
-
-* [Dropbar](https://github.com/Bekaboo/dropbar.nvim): breadcrumbs for source code context
-
-### Bottom
+### Bars
 
 * [lualine](https://github.com/nvim-lualine/lualine.nvim): improved statusline
+* [Dropbar](https://github.com/Bekaboo/dropbar.nvim): breadcrumbs for source code context
 
 ### Buffer
 
