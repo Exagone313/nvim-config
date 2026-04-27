@@ -1,6 +1,3 @@
-bottom:
-* lualine setup
-* show text selection info
 buffer:
 * conform: more formatters? enable on availability with backups?
 * formatexpr on filetype only (like with nvim-treesitter indentexpr)
