@@ -64,8 +64,8 @@ function M.open()
 				2,
 				math.min(
 					#lines,
-					vim.o.lines - 6,
-				),
+					vim.o.lines - 6
+				)
 			),
 		},
 		border      = {
