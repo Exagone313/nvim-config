@@ -52,6 +52,11 @@ function M.open()
 			end
 		}),
 		Menu.separator(" Other "),
+		Menu.item("Guess indent", {
+			action = function()
+				vim.cmd("GuessIndent silent")
+			end,
+		}),
 		Menu.item("IDE mode", {
 			action = function()
 				require("config.ide").toggle()
