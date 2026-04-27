@@ -31,15 +31,6 @@ major
 => seem to work in markdown...
 
 lesser
-* add maps for fzf-lua
-* dropbar may not be shown when opening a file from netrw (and other cases from dropbar itself too)
-=> bar.enable or bar.attach_events or bar.update_debounce
-* opening a directory (netrw) from dropbar doesn't create a new tab, it replaces current tab
-* when selecting a file that is already open in dropbar, it opens a new tab instead of switching to the existing one
-* similar issue with neotree
-=> open in current buffer?
-* when clicking a directory in dropbar, always expand it, do not open it in netrw (neotree is used for navigating directories)
-=> probably see opts.menu.keymaps LeftMouse (or read click_at code)
 * need a way to open all LSP errors in a window
 => would be nice if clicking on the error icons in lualine would open that window
 * https://github.com/ptdewey/yankbank-nvim or https://github.com/gbprod/yanky.nvim

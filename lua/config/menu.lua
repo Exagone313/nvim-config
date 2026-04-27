@@ -20,6 +20,11 @@ function M.open()
 			action = toggle_highlights,
 		}),
 		Menu.separator(" List "),
+		Menu.item("LSP Diagnostics", {
+			action = function()
+				vim.cmd("FzfLua lsp_document_diagnostics")
+			end
+		}),
 		Menu.item("Tabs", {
 			action = function()
 				vim.cmd("FzfLua tabs")
