@@ -30,8 +30,6 @@ lesser
 * https://github.com/ptdewey/yankbank-nvim or https://github.com/gbprod/yanky.nvim
 => yanky needs https://github.com/stevearc/dressing.nvim afaik
 * better neotree controls:
-=> replace left and right arrow keys on neotree by parent directory and open file/expand directory
 => show H, the key to show hidden files, at the end of hidden item line
-=> if possible, disable visual and hide cursor (keep only the line)
 * select a help page in FzfLua and then open it in a new tab (full window)
 * search for selected text (escape it)

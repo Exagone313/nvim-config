@@ -66,6 +66,8 @@ require("neo-tree").setup{
 			["<2-LeftMouse>"] = open_node,
 			["<CR>"]          = open_node,
 			["e"]             = "expand_all_subnodes",
+			["<Left>"]        = "navigate_up",
+			["<Right>"]       = open_node,
 		},
 	},
 	filesystem = {
