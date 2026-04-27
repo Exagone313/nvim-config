@@ -39,6 +39,23 @@ local function tabs_previewer_ctor()
 end
 
 require("fzf-lua").setup({
+	winopts = {
+		-- workaround for FzFLua not going into insert mode when opened from lualine
+		on_create = function()
+			local buf = vim.api.nvim_get_current_buf()
+			vim.api.nvim_create_autocmd("ModeChanged", {
+				buffer = buf,
+				callback = function(e)
+					if e.match == "n:nt"
+						and vim.api.nvim_buf_is_valid(buf)
+						and vim.api.nvim_get_current_buf() == buf
+					then
+						vim.cmd("startinsert")
+					end
+				end,
+			})
+		end,
+	},
 	tabs = {
 		keymap = {
 			fzf = {
