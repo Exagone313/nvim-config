@@ -46,10 +46,7 @@ require("fzf-lua").setup({
 			vim.api.nvim_create_autocmd("ModeChanged", {
 				buffer = buf,
 				callback = function(e)
-					if e.match == "n:nt"
-						and vim.api.nvim_buf_is_valid(buf)
-						and vim.api.nvim_get_current_buf() == buf
-					then
+					if e.match == "n:nt" and vim.api.nvim_get_current_buf() == buf then
 						vim.cmd("startinsert")
 					end
 				end,
