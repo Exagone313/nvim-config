@@ -8,6 +8,9 @@ lsp:
 menu:
 * hide leader menu when clicking out of it
 * close diffview when selecting git diff?
+* add other menu for maintenance tasks:
+=> Load help tags :helptags ALL
+=> Update Treesitter parsers :TSUpdate
 top:
 * in dropbar, when opening directory with left click, it directly closes neo-tree popup on click release
 vim:
