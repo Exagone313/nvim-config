@@ -73,6 +73,7 @@ local servers = {
 			},
 		},
 	},
+	['zls'] = {},
 }
 for server, options in pairs(servers) do
 	if vim.lsp.config[server] and lsp_binary_exists(server) then
