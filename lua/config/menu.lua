@@ -27,12 +27,12 @@ function M.open()
 		}),
 		Menu.item("Tabs", {
 			action = function()
-				vim.cmd("FzfLua tabs")
+				vim.cmd("FzfLua tabs fzf_opts.--header-lines=1")
 			end
 		}),
 		Menu.item("Buffers", {
 			action = function()
-				vim.cmd("FzfLua buffers")
+				vim.cmd("FzfLua buffers sort_lastused=false")
 			end
 		}),
 		Menu.item("Buffers in tab", {
