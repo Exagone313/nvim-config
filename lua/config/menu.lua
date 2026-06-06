@@ -19,15 +19,20 @@ function M.open()
 		Menu.item("Search highlights", {
 			action = toggle_highlights,
 		}),
-		Menu.separator(" List "),
-		Menu.item("LSP Diagnostics", {
+		Menu.separator(" Fzf Lua "),
+		Menu.item("Resume", {
 			action = function()
-				vim.cmd("FzfLua lsp_document_diagnostics")
+				vim.cmd("FzfLua resume")
 			end
 		}),
-		Menu.item("Tabs", {
+		Menu.item("Live Grep", {
 			action = function()
-				vim.cmd("FzfLua tabs fzf_opts.--header-lines=1")
+				vim.cmd("FzfLua live_grep")
+			end
+		}),
+		Menu.item("Files", {
+			action = function()
+				vim.cmd("FzfLua files")
 			end
 		}),
 		Menu.item("Buffers", {
@@ -35,9 +40,19 @@ function M.open()
 				vim.cmd("FzfLua buffers sort_lastused=false")
 			end
 		}),
+		Menu.item("Tabs", {
+			action = function()
+				vim.cmd("FzfLua tabs fzf_opts.--header-lines=1")
+			end
+		}),
 		Menu.item("Buffers in tab", {
 			action = function()
 				vim.cmd("FzfLua tabs current_tab_only=true")
+			end
+		}),
+		Menu.item("LSP Diagnostics", {
+			action = function()
+				vim.cmd("FzfLua lsp_document_diagnostics")
 			end
 		}),
 		Menu.separator(" Git "),
