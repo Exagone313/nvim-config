@@ -72,6 +72,11 @@ function M.open()
 			end
 		}),
 		Menu.separator(" Other "),
+		Menu.item("Keep only this tab", {
+			action = function()
+				vim.cmd("tabonly")
+			end,
+		}),
 		Menu.item("Guess indent", {
 			action = function()
 				vim.cmd("GuessIndent silent")
