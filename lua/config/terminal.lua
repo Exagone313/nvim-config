@@ -41,6 +41,8 @@ local function open_win(buf)
 		callback = close_win,
 	})
 
+	vim.keymap.set("t", "<C-q>", close_win, { buffer = buf })
+
 	vim.cmd("startinsert")
 end
 
