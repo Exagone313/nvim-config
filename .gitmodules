@@ -1,0 +1,63 @@
+# SPDX-FileCopyrightText: 2026 Elouan Martinet <exa@elou.world>
+# SPDX-License-Identifier: BSD-3-Clause
+
+[submodule "pack/submodule/start/nvim-lspconfig"]
+	path = pack/submodule/start/nvim-lspconfig
+	url = https://github.com/neovim/nvim-lspconfig.git
+[submodule "pack/submodule/start/catppuccin"]
+	path = pack/submodule/start/catppuccin
+	url = https://github.com/catppuccin/nvim.git
+[submodule "pack/submodule/start/nvim-treesitter"]
+	path = pack/submodule/start/nvim-treesitter
+	url = https://github.com/nvim-treesitter/nvim-treesitter.git
+[submodule "pack/submodule/start/friendly-snippets"]
+	path = pack/submodule/start/friendly-snippets
+	url = https://github.com/rafamadriz/friendly-snippets.git
+[submodule "pack/submodule/start/blink-cmp"]
+	path = pack/submodule/start/blink-cmp
+	url = https://github.com/Saghen/blink.cmp.git
+[submodule "pack/submodule/start/diffview"]
+	path = pack/submodule/start/diffview
+	url = https://github.com/sindrets/diffview.nvim.git
+[submodule "pack/submodule/start/fzf-lua"]
+	path = pack/submodule/start/fzf-lua
+	url = https://github.com/ibhagwan/fzf-lua.git
+[submodule "pack/submodule/start/gitsigns"]
+	path = pack/submodule/start/gitsigns
+	url = https://github.com/lewis6991/gitsigns.nvim.git
+[submodule "pack/submodule/start/ibl"]
+	path = pack/submodule/start/ibl
+	url = https://github.com/lukas-reineke/indent-blankline.nvim.git
+[submodule "pack/submodule/start/dropbar"]
+	path = pack/submodule/start/dropbar
+	url = https://github.com/Bekaboo/dropbar.nvim.git
+[submodule "pack/submodule/start/lualine"]
+	path = pack/submodule/start/lualine
+	url = https://github.com/nvim-lualine/lualine.nvim.git
+[submodule "pack/submodule/start/nui"]
+	path = pack/submodule/start/nui
+	url = https://github.com/MunifTanjim/nui.nvim.git
+[submodule "pack/submodule/start/neo-tree"]
+	path = pack/submodule/start/neo-tree
+	url = https://github.com/nvim-neo-tree/neo-tree.nvim.git
+[submodule "pack/submodule/start/plenary"]
+	path = pack/submodule/start/plenary
+	url = https://github.com/nvim-lua/plenary.nvim.git
+[submodule "pack/submodule/start/noice"]
+	path = pack/submodule/start/noice
+	url = https://github.com/Exagone313/noice.nvim.git
+[submodule "pack/submodule/start/notify"]
+	path = pack/submodule/start/notify
+	url = https://github.com/rcarriga/nvim-notify.git
+[submodule "pack/submodule/start/which-key"]
+	path = pack/submodule/start/which-key
+	url = https://github.com/folke/which-key.nvim.git
+[submodule "pack/submodule/start/mini"]
+	path = pack/submodule/start/mini
+	url = https://github.com/echasnovski/mini.nvim.git
+[submodule "pack/submodule/start/guess-indent"]
+	path = pack/submodule/start/guess-indent
+	url = https://github.com/Exagone313/guess-indent.nvim.git
+[submodule "pack/submodule/start/conform"]
+	path = pack/submodule/start/conform
+	url = https://github.com/stevearc/conform.nvim.git
