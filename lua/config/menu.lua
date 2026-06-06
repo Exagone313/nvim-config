@@ -25,14 +25,14 @@ function M.open()
 				vim.cmd("FzfLua resume")
 			end
 		}),
-		Menu.item("Grep word", {
-			action = function()
-				vim.cmd("FzfLua grep_cword")
-			end
-		}),
 		Menu.item("Live Grep", {
 			action = function()
 				vim.cmd("FzfLua live_grep")
+			end
+		}),
+		Menu.item("Grep word", {
+			action = function()
+				vim.cmd("FzfLua grep_cword")
 			end
 		}),
 		Menu.item("Files", {
@@ -85,6 +85,11 @@ function M.open()
 		Menu.item("IDE mode", {
 			action = function()
 				require("config.ide").toggle()
+			end,
+		}),
+		Menu.item("Terminal", {
+			action = function()
+				require("config.terminal").open()
 			end,
 		}),
 	}
