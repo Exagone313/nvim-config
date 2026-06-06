@@ -63,4 +63,10 @@ require("fzf-lua").setup({
 			_ctor = tabs_previewer_ctor,
 		},
 	},
+	actions = {
+		files = {
+			true,
+			["enter"] = require("fzf-lua.actions").file_edit,
+		},
+	},
 })
