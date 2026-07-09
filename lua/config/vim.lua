@@ -14,6 +14,7 @@ vim.opt.title = true
 
 vim.g.mapleader = ","
 vim.g.load_black = false
+vim.g.omni_sql_no_default_maps = true
 
 vim.go.pumheight = 15
 
