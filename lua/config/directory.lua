@@ -94,6 +94,9 @@ require("neo-tree").setup{
 			end
 		}
 	},
+	source_selector = {
+		statusline = true,
+	},
 }
 require("which-key").add({
 	"<Leader>e",
@@ -109,13 +112,23 @@ require("which-key").add({
 		end
 		local buffer_id = vim.api.nvim_get_current_buf()
 		if vim.fn.expand("%:p") == "" and not vim.api.nvim_buf_get_option(buffer_id, "modified") then
-			require("neo-tree.command").execute({action = "focus", position = "current"})
+			require("neo-tree.command").execute({
+				action   = "focus",
+				position = "current",
+				selector = false,
+			})
 			vim.api.nvim_buf_delete(buffer_id, {})
 		else
 			-- Pass position explicitly so a leftover state.current_position
 			-- (e.g. "left" from a prior IDE-mode session on this tab)
 			-- doesn't override the float layout.
-			require("neo-tree.command").execute({action = "focus", position = "float", dir = vim.fn.expand("%:p:h"), reveal = true})
+			require("neo-tree.command").execute({
+				action   = "focus",
+				position = "float",
+				dir      = vim.fn.expand("%:p:h"),
+				reveal   = true,
+				selector = false,
+			})
 		end
 	end,
 	desc = "Neotree",
