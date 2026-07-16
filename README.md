@@ -71,6 +71,10 @@ Some modules can be loaded on demand:
 * [nui](https://github.com/MunifTanjim/nui.nvim): UI library, used by *Neo-tree* and *Noice*
 * [plenary](https://github.com/nvim-lua/plenary.nvim): utility function library, used by *Neo-tree* and *nvim-notify*
 
+## AI-usage disclosure
+
+Some files or parts of files were written using an AI model. This is indicated in file headers.
+
 ## License
 
 Unless otherwise stated, software in this repository is released under the 3-Clause BSD License (see `COPYING`).

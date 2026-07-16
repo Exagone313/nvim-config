@@ -1,6 +1,8 @@
 -- SPDX-FileCopyrightText: 2026 Elouan Martinet <exa@elou.world>
 -- SPDX-License-Identifier: BSD-3-Clause
 
+-- AI-usage disclosure: this file was written by an AI model
+
 local M = {}
 
 local function define_highlights()

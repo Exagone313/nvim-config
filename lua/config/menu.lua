@@ -1,6 +1,8 @@
 -- SPDX-FileCopyrightText: 2026 Elouan Martinet <exa@elou.world>
 -- SPDX-License-Identifier: BSD-3-Clause
 
+-- AI-usage disclosure: some parts of this file were written by an AI model
+
 local Menu  = require("nui.menu")
 local event = require("nui.utils.autocmd").event
 

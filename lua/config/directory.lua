@@ -1,6 +1,8 @@
 -- SPDX-FileCopyrightText: 2026 Elouan Martinet <exa@elou.world>
 -- SPDX-License-Identifier: BSD-3-Clause
 
+-- AI-usage disclosure: this file was written by an AI model
+
 -- Resolve the path of the tree node currently under the cursor.
 local function node_path(state)
 	local ok, node = pcall(state.tree.get_node, state.tree)

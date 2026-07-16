@@ -1,6 +1,8 @@
 -- SPDX-FileCopyrightText: 2026 Elouan Martinet <exa@elou.world>
 -- SPDX-License-Identifier: BSD-3-Clause
 
+-- AI-usage disclosure: this file was written by an AI model
+
 -- Per-tab "IDE mode": when enabled on a tabpage, neo-tree is shown as a side
 -- panel on that tab and a few related behaviors change (see lua/config/above.lua).
 -- Other tabs are unaffected.
