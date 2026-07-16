@@ -54,6 +54,8 @@ require("dropbar").setup{
 	},
 }
 
+require("config.tabline").setup()
+
 vim.keymap.set("n", "<Leader>t", '<cmd>tab split<CR>')
 vim.keymap.set("n", "<Tab>", "gt")
 vim.keymap.set("n", "<S-Tab>", "gT")
