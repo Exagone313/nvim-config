@@ -17,6 +17,7 @@ Lua configuration files are loaded in this order (see [init.lua](./init.lua)):
 * [directory.lua](./lua/config/directory.lua): configuration for file/directory manager
 * [above.lua](./lua/config/above.lua): configuration for plugins that are displayed above buffer
 * [bars.lua](./lua/config/top.lua): configuration for bars displayed on top or bottom of the buffer
+    * [tabline.lua](./lua/config/tabline.lua): custom tabline
 * [buffer.lua](./lua/config/buffer.lua): configuration for buffer mapping and plugins that interact with the buffer
 
 Some modules can be loaded on demand:
