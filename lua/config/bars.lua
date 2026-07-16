@@ -17,7 +17,10 @@ require("lualine").setup {
 		},
 		lualine_b = {'branch', 'diff'},
 		lualine_c = {
-			'filename',
+			{
+				'filename',
+				path = 1,
+			},
 			{
 				'diagnostics',
 				on_click = function()
