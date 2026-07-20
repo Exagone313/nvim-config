@@ -38,16 +38,17 @@ require("guess-indent").setup{
 
 require("conform").setup({
 	formatters_by_ft = {
-		c = {"clang-format"},
 		bash = {"shellcheck"},
-		javascript = {"deno_fmt"},
-		javascriptreact = {"deno_fmt"},
+		c = {"clang-format"},
+		cpp = {"clang-format"},
 		go = {"gofmt"},
+		javascript = {"deno_fmt", lsp_format = "prefer"},
+		javascriptreact = {"deno_fmt", lsp_format = "prefer"},
 		markdown = {"deno_fmt"},
-		python = {"ruff_format"},
+		python = {"ruff_fix", "ruff_format"},
 		sh = {"shellcheck"},
-		typescript = {"deno_fmt"},
-		typescriptreact = {"deno_fmt"},
+		typescript = {"deno_fmt", lsp_format = "prefer"},
+		typescriptreact = {"deno_fmt", lsp_format = "prefer"},
 		zig = {"zigfmt"},
 	},
 })
