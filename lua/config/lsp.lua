@@ -20,8 +20,6 @@ function lsp_binary_exists(server)
 	return vim.fn.executable(vim.lsp.config[server].cmd[1]) == 1
 end
 
--- Use a loop to conveniently call 'setup' on multiple servers and
--- map buffer local keybindings when the language server attaches
 local servers = {
 	['bashls'] = {},
 	['biome'] = {
