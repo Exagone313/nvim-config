@@ -71,6 +71,38 @@ Some modules can be loaded on demand:
 * [nui](https://github.com/MunifTanjim/nui.nvim): UI library, used by *Neo-tree* and *Noice*
 * [plenary](https://github.com/nvim-lua/plenary.nvim): utility function library, used by *Neo-tree* and *nvim-notify*
 
+## System dependencies
+
+### Main dependencies
+
+* Neovim 0.12+
+* [fzf](https://github.com/junegunn/fzf): for fzf-lua
+* [ripgrep](https://github.com/burntsushi/ripgrep) (rg): for fzf-lua (optional)
+* [fd](https://github.com/sharkdp/fd): for fzf-lua (optional)
+
+### LSP
+
+Minimal list of recommended servers. All servers are optional.
+
+* [Bash Language Server](https://github.com/bash-lsp/bash-language-server) (bashls): Bash, sh
+* [clang](https://clang.llvm.org/) (comes with `clangd`): C, C++
+* [Deno](https://github.com/denoland/deno): JavaScript, TypeScript (only for Deno projects)
+* [gopls](https://github.com/golang/tools/tree/master/gopls): Go
+* [Ruff](https://docs.astral.sh/ruff/): Python
+* [Tinymist](https://github.com/Myriad-Dreamin/tinymist): Typst
+* [ZLS](https://github.com/zigtools/zls): Zig
+* [YAML Language Server](https://github.com/redhat-developer/yaml-language-server) (yamlls): YAML
+
+### Formatting
+
+* [ShellCheck](https://github.com/koalaman/shellcheck): Bash, sh
+* [clang](https://clang.llvm.org/) (comes with `clang-format`): C, C++
+* [Go](https://go.dev/) (comes with `gofmt`): Go
+* [Deno](https://github.com/denoland/deno): JavaScript, TypeScript, Markdown
+    * for JavaScript and TypeScript, LSP is used over Deno
+* [Ruff](https://docs.astral.sh/ruff/): Python
+* [Zig](https://ziglang.org/) (comes with `zig fmt`): Zig
+
 ## AI-usage disclosure
 
 Some files or parts of files were written using an AI model. This is indicated in file headers.
