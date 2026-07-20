@@ -77,6 +77,7 @@ Some modules can be loaded on demand:
 
 * Neovim 0.12+
 * [fzf](https://github.com/junegunn/fzf): for fzf-lua
+* [curl](https://curl.se/): for downloads made by nvim-treesitter and Blink Completion
 * [ripgrep](https://github.com/burntsushi/ripgrep) (rg): for fzf-lua (optional)
 * [fd](https://github.com/sharkdp/fd): for fzf-lua (optional)
 
