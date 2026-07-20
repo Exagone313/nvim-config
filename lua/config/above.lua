@@ -1,6 +1,8 @@
 -- SPDX-FileCopyrightText: 2026 Elouan Martinet <exa@elou.world>
 -- SPDX-License-Identifier: BSD-3-Clause
 
+-- AI-usage disclosure: fzf-lua configuration written by an AI model
+
 require("notify").setup{
 	minimum_width = 40,
 	render = "wrapped-compact",
