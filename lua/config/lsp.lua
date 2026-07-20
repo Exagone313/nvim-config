@@ -48,19 +48,30 @@ end
 -- map buffer local keybindings when the language server attaches
 local servers = {
 	['bashls'] = {},
-	['biome'] = {},
-	['cssls'] = {},
+	['biome'] = {
+		cmd = { 'biome', 'lsp-proxy' },
+	},
+	['cssls'] = {
+		cmd = { 'vscode-css-language-server', '--stdio' },
+	},
 	['clangd'] = {},
 	['denols'] = {},
-	['eslint'] = {},
+	['eslint'] = {
+		cmd = { 'vscode-eslint-language-server', '--stdio' },
+	},
 	['gopls'] = {},
-	['html'] = {},
-	['jsonls'] = {},
+	['html'] = {
+		cmd = { 'vscode-html-language-server', '--stdio' },
+	},
+	['jsonls'] = {
+		cmd = { 'vscode-json-language-server', '--stdio' },
+	},
 	['rubocop'] = {},
 	['ruff'] = {},
 	['terraformls'] = {},
 	['tinymist'] = {},
 	['yamlls'] = {
+		cmd = { 'yaml-language-server', '--stdio' },
 		settings = {
 			yaml = {
 				schemaStore = {
@@ -76,11 +87,13 @@ local servers = {
 	['zls'] = {},
 }
 for server, options in pairs(servers) do
-	if vim.lsp.config[server] and lsp_binary_exists(server) then
+	if vim.lsp.config[server] then
 		options.on_attach = on_attach
 		options.capabilities = require('blink-cmp').get_lsp_capabilities(options.capabilities)
 		vim.lsp.config(server, options)
-		vim.lsp.enable(server)
+		if lsp_binary_exists(server) then
+			vim.lsp.enable(server)
+		end
 	end
 end
 
