@@ -1,6 +1,8 @@
 -- SPDX-FileCopyrightText: 2026 Elouan Martinet <exa@elou.world>
 -- SPDX-License-Identifier: BSD-3-Clause
 
+-- AI-usage disclosure: configuration of C-p for blink.cmp written by an AI model
+
 local opts = { noremap=true, silent=true }
 vim.api.nvim_set_keymap('n', '<leader>d', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
 vim.api.nvim_set_keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
@@ -75,19 +77,43 @@ require("blink-cmp").setup{
 	cmdline = {
 		enabled = false,
 	},
+	completion = {
+		keyword = {
+			range = 'full',
+		},
+	},
 	keymap = {
 		preset = 'none',
-		['<C-space>'] = { 'show', 'show_documentation', 'hide_documentation' },
-		['<C-c>'] = { 'hide', 'fallback' },
-		['<C-Enter>'] = { 'select_and_accept', 'fallback' },
 		['<C-Up>'] = { 'select_prev', 'fallback' },
 		['<C-Down>'] = { 'select_next', 'fallback' },
+		['<C-Enter>'] = { 'select_and_accept', 'fallback' },
+		['<C-space>'] = { 'show', 'show_documentation', 'hide_documentation' },
+		['<C-c>'] = { 'hide', 'fallback' },
 		['<C-b>'] = { 'scroll_documentation_up', 'fallback' },
 		['<C-f>'] = { 'scroll_documentation_down', 'fallback' },
 		['<Tab>'] = { 'snippet_forward', 'fallback' },
 		['<S-Tab>'] = { 'snippet_backward', 'fallback' },
+		['<C-k>'] = { 'show_signature', 'hide_signature', 'fallback' },
+		['<C-p>'] = {
+			-- replace native autocompletion with blink.cmp with only buffer provider
+			function(cmp)
+				local ctx = cmp.get_context()
+				local buffer_only = ctx and #ctx.providers == 1 and ctx.providers[1] == 'buffer'
+				if cmp.is_menu_visible() and buffer_only then
+					return cmp.select_next({ auto_insert = true })
+				end
+				return cmp.show({
+					providers = { 'buffer' },
+					initial_selected_item_idx = 1,
+				})
+			end
+		},
+		['<C-n>'] = { 'select_prev' },
 	},
 	signature = {
 		enabled = true,
+	},
+	sources = {
+		default = { 'lsp', 'path', 'snippets', 'buffer' },
 	},
 }
