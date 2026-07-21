@@ -42,10 +42,26 @@ require("lualine").setup {
 	},
 }
 
-local default_dropbar_enable = require('dropbar.configs').opts.bar.enable
+local dropbar_configs = require('dropbar.configs')
+local default_dropbar_enable = dropbar_configs.opts.bar.enable
+local default_menu_leftmouse = dropbar_configs.opts.menu.keymaps['<LeftMouse>']
+local menu_pressed = false
 require("dropbar").setup{
 	menu = {
 		preview = false,
+		keymaps = {
+			-- workaround for delaying actions on release
+			['<LeftMouse>'] = function()
+				menu_pressed = true
+			end,
+			['<LeftRelease>'] = function()
+				if not menu_pressed then
+					return
+				end
+				menu_pressed = false
+				default_menu_leftmouse()
+			end,
+		},
 	},
 	bar = {
 		enable = function(buf, win, _)
