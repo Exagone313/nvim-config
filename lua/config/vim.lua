@@ -22,6 +22,12 @@ vim.go.pumheight = 15
 vim.filetype.add({
 	extension = {
 		container = "systemd",
+		mount = "systemd",
+		netdev = "systemd",
+		network = "systemd",
 		pod = "systemd",
+		service = "systemd",
+		socket = "systemd",
+		timer = "systemd",
 	},
 })
