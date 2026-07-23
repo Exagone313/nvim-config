@@ -11,6 +11,7 @@ vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.showtabline = 2
 vim.opt.title = true
+vim.opt.runtimepath:append(vim.fn.stdpath("config") .. "/pack/submodule/start/*/doc")
 
 vim.g.mapleader = ","
 vim.g.load_black = false
