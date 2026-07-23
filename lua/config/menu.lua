@@ -76,6 +76,11 @@ function M.open()
 			end
 		}),
 		Menu.separator(" Other "),
+		Menu.item("Help", {
+			action = function()
+				require("config.help").open()
+			end,
+		}),
 		Menu.item("Keep only this tab", {
 			action = function()
 				vim.cmd("tabonly")
