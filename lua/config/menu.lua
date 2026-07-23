@@ -9,6 +9,8 @@ local event = require("nui.utils.autocmd").event
 local M = {}
 
 function M.open()
+	local origin_buf = vim.api.nvim_get_current_buf()
+
 	local function toggle_highlights()
 		if vim.v.hlsearch == 1 then
 			vim.cmd("nohlsearch")
@@ -82,6 +84,11 @@ function M.open()
 		Menu.item("Guess indent", {
 			action = function()
 				vim.cmd("GuessIndent silent")
+			end,
+		}),
+		Menu.item("LSP Info", {
+			action = function()
+				require("config.lspinfo").open(origin_buf)
 			end,
 		}),
 		Menu.item("IDE mode", {
