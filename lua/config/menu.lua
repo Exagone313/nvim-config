@@ -4,9 +4,55 @@
 -- AI-usage disclosure: some parts of this file were written by an AI model
 
 local Menu  = require("nui.menu")
+local Line  = require("nui.line")
+local Text  = require("nui.text")
 local event = require("nui.utils.autocmd").event
 
 local M = {}
+
+-- Underline the shortcut letter with the same color as the float border,
+-- leaving the letter's text color unchanged.
+local function set_shortcut_hl()
+	local border = vim.api.nvim_get_hl(0, { name = "FloatBorder", link = false })
+	vim.api.nvim_set_hl(0, "MenuShortcut", {
+		sp = border.fg,
+		underline = true,
+	})
+end
+
+set_shortcut_hl()
+
+-- Re-apply after a colorscheme change so the color keeps matching the border.
+vim.api.nvim_create_autocmd("ColorScheme", {
+	group = vim.api.nvim_create_augroup("MenuShortcutHl", { clear = true }),
+	callback = set_shortcut_hl,
+})
+
+-- Build a menu item from a label. A "&" before a character marks it as the
+-- shortcut key: the character is displayed with the MenuShortcut highlight and
+-- the lowercased character (in data.key) can be typed to jump to the entry.
+local function item(label, data)
+	local key = label:match("&(.)")
+	local text = label:gsub("&", "")
+
+	if not key then
+		return Menu.item(text, data)
+	end
+
+	data = data or {}
+	data.key = key:lower()
+
+	local idx = label:find("&", 1, true)
+	-- Column (in the "&"-stripped text) where the shortcut char starts.
+	local before = label:sub(1, idx - 1):gsub("&", "")
+
+	local line = Line()
+	line:append(before)
+	line:append(Text(key, "MenuShortcut"))
+	line:append(text:sub(#before + #key + 1))
+
+	return Menu.item(line, data)
+end
 
 function M.open()
 	local origin_buf = vim.api.nvim_get_current_buf()
@@ -20,88 +66,93 @@ function M.open()
 	end
 
 	local lines = {
-		Menu.item("Search highlights", {
+		item("Search highlights", {
 			action = toggle_highlights,
 		}),
 		Menu.separator(" Fzf Lua "),
-		Menu.item("Resume", {
+		item("&Resume", {
 			action = function()
 				vim.cmd("FzfLua resume")
 			end
 		}),
-		Menu.item("Live Grep", {
+		item("Live Grep", {
 			action = function()
 				vim.cmd("FzfLua live_grep")
 			end
 		}),
-		Menu.item("Grep word", {
+		item("Grep &word", {
 			action = function()
 				vim.cmd("FzfLua grep_cword")
 			end
 		}),
-		Menu.item("Files", {
+		item("Files", {
 			action = function()
 				vim.cmd("FzfLua files")
 			end
 		}),
-		Menu.item("Buffers", {
+		item("Buffers", {
 			action = function()
 				vim.cmd("FzfLua buffers sort_lastused=false")
 			end
 		}),
-		Menu.item("Tabs", {
+		item("Tabs", {
 			action = function()
 				vim.cmd("FzfLua tabs fzf_opts.--header-lines=1")
 			end
 		}),
-		Menu.item("Buffers in tab", {
+		item("Buffers in tab", {
 			action = function()
 				vim.cmd("FzfLua tabs current_tab_only=true")
 			end
 		}),
-		Menu.item("LSP Diagnostics", {
+		item("LSP &Diagnostics", {
 			action = function()
 				vim.cmd("FzfLua lsp_document_diagnostics")
 			end
 		}),
+		item("&Fzf Lua", {
+			action = function()
+				vim.cmd("FzfLua")
+			end
+		}),
 		Menu.separator(" Git "),
-		Menu.item("Git diff", {
+		item("Git diff", {
 			action = function()
 				vim.cmd("DiffviewOpen")
 			end
 		}),
-		Menu.item("Git blame", {
+		item("Git blame", {
 			action = function()
 				vim.cmd("Gitsigns blame")
 			end
 		}),
 		Menu.separator(" Other "),
-		Menu.item("Help", {
+		item("Help", {
 			action = function()
 				require("config.help").open()
 			end,
 		}),
-		Menu.item("Keep only this tab", {
+		item("Keep only this tab", {
 			action = function()
 				vim.cmd("tabonly")
 			end,
 		}),
-		Menu.item("Guess indent", {
+		item("Guess indent", {
 			action = function()
 				vim.cmd("GuessIndent silent")
 			end,
 		}),
-		Menu.item("LSP Info", {
+		item("LSP Info", {
 			action = function()
 				require("config.lspinfo").open(origin_buf)
 			end,
 		}),
-		Menu.item("IDE mode", {
+		item("&IDE mode", {
 			action = function()
 				require("config.ide").toggle()
 			end,
 		}),
-		Menu.item("Terminal", {
+		item("&Terminal", {
 			action = function()
 				require("config.terminal").open()
 			end,
@@ -140,6 +191,16 @@ function M.open()
 	})
 
 	menu:mount()
+
+	-- Map shortcut keys to jump the cursor to the matching entry.
+	for linenr = 1, #menu.tree:get_nodes() do
+		local node = menu.tree:get_node(linenr)
+		if node and node.key then
+			menu:map("n", node.key, function()
+				vim.api.nvim_win_set_cursor(menu.winid, { linenr, 0 })
+			end, { noremap = true, nowait = true })
+		end
+	end
 
 	menu:on(event.BufLeave, function()
 		menu:unmount()
