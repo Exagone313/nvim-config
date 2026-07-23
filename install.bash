@@ -15,3 +15,5 @@ fi
 
 mkdir -p ~/.config
 ln -srvfT "${PWD}" ~/.config/nvim
+
+source ./post-install.bash

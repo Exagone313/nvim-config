@@ -7,7 +7,8 @@ set -e
 
 cd "$(dirname "$0")"
 
-git pull
-git submodule update --init --recursive
+# generate help tags
+nvim --headless -c "helptags ALL" +q
 
-source ./post-install.bash
+# update tree-sitter parsers
+nvim --headless -c "TSUpdate" +q; echo
