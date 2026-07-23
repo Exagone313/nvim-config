@@ -45,6 +45,7 @@ local servers = {
 	['rubocop'] = {},
 	['ruff'] = {},
 	['terraformls'] = {},
+	['tombi'] = {},
 	['tinymist'] = {},
 	['yamlls'] = {
 		cmd = { 'yaml-language-server', '--stdio' },
