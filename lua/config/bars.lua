@@ -28,7 +28,19 @@ require("lualine").setup {
 				end,
 			},
 		},
-		lualine_x = {'lsp_status', 'encoding', 'fileformat', 'filetype', 'filesize'},
+		lualine_x = {
+			{
+				'lsp_status',
+				on_click = function()
+					local origin_buf = vim.api.nvim_get_current_buf()
+					require("config.lspinfo").open(origin_buf)
+				end,
+			},
+			'encoding',
+			'fileformat',
+			'filetype',
+			'filesize',
+		},
 		lualine_y = {'progress', 'searchcount'},
 		lualine_z = {'selectioncount', 'location'}
 	},
