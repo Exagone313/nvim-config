@@ -202,6 +202,8 @@ function M.open(buf)
 	local lines = build(buf)
 
 	local info_buf = vim.api.nvim_create_buf(false, true)
+
+	vim.api.nvim_buf_set_name(info_buf, "LSP Info." .. info_buf)
 	render(info_buf, lines)
 
 	local width = math.min(80, math.floor(vim.o.columns * 0.6))
