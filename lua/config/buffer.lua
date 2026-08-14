@@ -9,7 +9,12 @@ require("diffview").setup{
 		}
 	},
 }
+
 require("gitsigns").setup()
+
+vim.keymap.set("n", "<Leader>g", function()
+	require("gitsigns").nav_hunk("next", { target = "all" })
+end, { desc = "Next Git hunk" })
 
 local ibl_hooks = require "ibl.hooks"
 ibl_hooks.register(ibl_hooks.type.SKIP_LINE, function(_, _, _, line)
