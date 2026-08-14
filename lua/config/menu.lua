@@ -147,6 +147,16 @@ function M.open()
 				require("config.lspinfo").open(origin_buf)
 			end,
 		}),
+		item("&cd here", {
+			action = function()
+				vim.cmd.cd(vim.fn.expand('%:p:h'))
+			end,
+		}),
+		item("tcd here", {
+			action = function()
+				vim.cmd.tcd(vim.fn.expand('%:p:h'))
+			end,
+		}),
 		item("&IDE mode", {
 			action = function()
 				require("config.ide").toggle()
