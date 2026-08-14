@@ -10,6 +10,8 @@ local event = require("nui.utils.autocmd").event
 
 local M = {}
 
+local menu_name = "Leader"
+
 -- Underline the shortcut letter with the same color as the float border,
 -- leaving the letter's text color unchanged.
 local function set_shortcut_hl()
@@ -178,7 +180,7 @@ function M.open()
 		},
 		border      = {
 			style = "rounded",
-			text  = { top = " Leader ", top_align = "center" },
+			text  = { top = " " .. menu_name .. " ", top_align = "center" },
 		},
 		win_options = {
 			winhighlight = "Normal:Normal,FloatBorder:FloatBorder",
@@ -201,6 +203,13 @@ function M.open()
 	})
 
 	menu:mount()
+
+	-- Set buffer name for tabline
+	if vim.fn.bufnr(menu_name) == -1 then
+		vim.api.nvim_buf_set_name(menu.bufnr, menu_name)
+	else
+		vim.api.nvim_buf_set_name(menu.bufnr, menu_name .. "." .. menu.bufnr)
+	end
 
 	-- Map shortcut keys to jump the cursor to the matching entry.
 	for linenr = 1, #menu.tree:get_nodes() do
