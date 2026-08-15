@@ -12,6 +12,7 @@ This repository hosts my Neovim configuration.
 Lua configuration files are loaded in this order (see [init.lua](./init.lua)):
 * [vim.lua](./lua/config/vim.lua): general Vim options
 * [colors.lua](./lua/config/colors.lua): colorscheme configuration
+* [icons.lua](./lua/config/icons.lua): icons configuration
 * [treesitter.lua](./lua/config/treesitter.lua): Tree-sitter configuration
 * [lsp.lua](./lua/config/lsp.lua): configuration for Language Server Protocol and completion
 * [directory.lua](./lua/config/directory.lua): configuration for file/directory manager
@@ -30,6 +31,10 @@ Some modules can be loaded on demand:
 ### Colors
 
 * [Catppuccin](https://github.com/catppuccin/nvim): Catppuccin colorscheme
+
+### Icons
+
+* [Mini Icons](https://github.com/nvim-mini/mini.icons): minimalist icons
 
 ### Tree-sitter
 

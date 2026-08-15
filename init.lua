@@ -4,6 +4,7 @@
 local config_names = {
 	"vim",
 	"colors",
+	"icons",
 	"treesitter",
 	"lsp",
 	"directory",

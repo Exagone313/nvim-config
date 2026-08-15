@@ -61,3 +61,6 @@
 [submodule "pack/submodule/start/conform"]
 	path = pack/submodule/start/conform
 	url = https://github.com/stevearc/conform.nvim.git
+[submodule "pack/submodule/start/mini.icons"]
+	path = pack/submodule/start/mini.icons
+	url = https://github.com/nvim-mini/mini.icons.git
