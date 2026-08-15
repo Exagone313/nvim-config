@@ -99,6 +99,34 @@ require("neo-tree").setup{
 	source_selector = {
 		statusline = true,
 	},
+	-- Mini Icons support, by mehalter on GitHub
+	-- https://github.com/nvim-neo-tree/neo-tree.nvim/pull/1527#issuecomment-2233186777
+	default_component_configs = {
+		icon = {
+			provider = function(icon, node)
+				local text, hl
+				if node.type == "file" then
+					text, hl = require("mini.icons").get("file", node.name)
+				elseif node.type == "directory" then
+					text, hl = require("mini.icons").get("directory", node.name)
+					if node:is_expanded() then
+						text = nil
+					end
+				end
+				if text then
+					icon.text = text
+				end
+				if hl then
+					icon.highlight = hl
+				end
+			end,
+		},
+		kind_icon = {
+			provider = function(icon, node)
+				icon.text, icon.highlight = require("mini.icons").get("lsp", node.extra.kind.name)
+			end,
+		},
+	},
 }
 require("which-key").add({
 	"<Leader>e",
