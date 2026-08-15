@@ -60,6 +60,17 @@ require("conform").setup({
 
 vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
 
+require('render-markdown').setup{
+	heading = {
+		enabled = false,
+	},
+	html = {
+		comment = {
+			conceal = false,
+		},
+	},
+}
+
 vim.keymap.set({"n", "v"}, "<Leader>p", '"+p')
 vim.keymap.set({"n", "v"}, "<Leader>P", '"+P')
 vim.keymap.set("v", "<Leader>y", '"+y')

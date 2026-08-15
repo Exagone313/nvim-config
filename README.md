@@ -69,6 +69,7 @@ Some modules can be loaded on demand:
 * [Mini Trailspace](https://github.com/nvim-mini/mini.nvim/blob/main/readmes/mini-trailspace.md): show trailing whitespaces
 * [guess-indent](https://github.com/NMAC427/guess-indent.nvim) ([fork](https://github.com/Exagone313/guess-indent.nvim)): detect file indentation style
 * [Conform](https://github.com/stevearc/conform.nvim): formatter manager
+* [render-markdown](https://github.com/MeanderingProgrammer/render-markdown.nvim): custom rendering for markdown documents
 
 ### Other
 

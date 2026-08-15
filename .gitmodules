@@ -64,3 +64,6 @@
 [submodule "pack/submodule/start/mini.icons"]
 	path = pack/submodule/start/mini.icons
 	url = https://github.com/nvim-mini/mini.icons.git
+[submodule "pack/submodule/start/render-markdown"]
+	path = pack/submodule/start/render-markdown
+	url = https://github.com/MeanderingProgrammer/render-markdown.nvim.git
