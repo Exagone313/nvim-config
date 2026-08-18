@@ -144,6 +144,11 @@ function M.open()
 				vim.cmd("GuessIndent silent")
 			end,
 		}),
+		item("Render markdown", {
+			action = function()
+				vim.cmd("RenderMarkdown toggle")
+			end,
+		}),
 		item("LSP Info", {
 			action = function()
 				require("config.lspinfo").open(origin_buf)
