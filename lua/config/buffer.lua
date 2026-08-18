@@ -61,6 +61,10 @@ require("conform").setup({
 vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
 
 require('render-markdown').setup{
+	code = {
+		conceal_delimiters = true,
+		border = 'thin',
+	},
 	heading = {
 		enabled = false,
 	},
