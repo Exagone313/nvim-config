@@ -47,6 +47,7 @@ local servers = {
 	['terraformls'] = {},
 	['tombi'] = {},
 	['tinymist'] = {},
+	['ty'] = {},
 	['yamlls'] = {
 		cmd = { 'yaml-language-server', '--stdio' },
 		settings = {
