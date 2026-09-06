@@ -82,3 +82,7 @@ vim.keymap.set({"n", "v"}, "<Leader>Y", '"+Y')
 
 -- fix line yanking in Neovim 0.6+
 pcall(vim.keymap.del, "n", "Y")
+
+vim.keymap.set('n', '<Leader>v', function()
+	return '`[' .. vim.fn.getregtype():sub(1, 1) .. '`]'
+end, { expr = true, desc = 'Select pasted text' })
